@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+}
+
+.inicial {
+    background: #1d1d1d;
+    background: url(assets/images/bg-banner-home.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.wrapper {
+    width: min(1000px, 90vw);
+    margin: 0 auto;
+}
+
+
+
+/* HEADER */
+
+.header-main {
+    width: 100%;
+    padding: 10px 0px;
+    min-height: 10vh;
+}
+
+.container-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.logo img {
+    width: 60px;
+}
+
+.container-header .nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+}
+
+.container-header .nav ul {
+    display: flex;
+    align-items: center;
+    color: #f3f3f3;
+    gap: 20px;
+    list-style: none;
+}
+
+.container-header .nav button {
+    background: transparent;
+    border: none;
+    padding: 10px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.7s ease;
+}
+
+.container-header .nav button:hover {
+    background-color: #646464;
+
+
+}
+
+.container-header .nav button img {
+    width: 30px;
+}
+
+
+/* SIDE MENU */
+
+.side-menu {
+    transition: 0.7s ease;
+    float: right;
+    transform: translate(100%, 0);
+    width: min(400px, 100%);
+    height: calc(100vh - (10vh + 20px));
+    background-color: #f3f3f3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-open {
+    transform: translate(0);
+}
