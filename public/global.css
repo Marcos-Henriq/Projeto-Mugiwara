@@ -4,21 +4,44 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Poppins';
 }
 
+/* BTN´S  */
+.btn {
+    font-family: 'Poppins';
+    font-weight: bold;
+    border: none;
+    background: transparent;
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.btn-yellow {
+    color: #1435D9;
+    background-color: #FFE01F;
+}
+
+
+
+
 .inicial {
-    background: #1d1d1d;
-    background: url(assets/images/bg-banner-home.jpg);
+    background: #646464;
+    background: url(assets/images/bg-banner-mugiwara.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
 }
 
 .wrapper {
@@ -63,27 +86,27 @@ body {
 .container-header .nav ul {
     display: flex;
     align-items: center;
-    color: #f3f3f3;
+    color: #646464;
     gap: 20px;
-    list-style: none;
 }
 
-.container-header .nav button {
+.container-header .nav .btn-menu {
     background: transparent;
     border: none;
     padding: 10px;
     outline: none;
     cursor: pointer;
     transition: 0.7s ease;
+    display: none;
 }
 
-.container-header .nav button:hover {
+.container-header .nav .btn-menu:hover {
     background-color: #646464;
 
 
 }
 
-.container-header .nav button img {
+.container-header .nav .btn-menu img {
     width: 30px;
 }
 
@@ -91,18 +114,74 @@ body {
 /* SIDE MENU */
 
 .side-menu {
+    position: absolute;
     transition: 0.7s ease;
-    float: right;
+    padding: 20px;
+    right: 0;
     transform: translate(100%, 0);
     width: min(400px, 100%);
     height: calc(100vh - (10vh + 20px));
     background-color: #f3f3f3;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-start;
+    justify-content: space-evenly;
 }
+
 
 .side-open {
     transform: translate(0);
+}
+
+.container-banner {
+    width: 100%;
+    height: calc(100vh - (10vh + 20px));
+    display: flex;
+    align-items: center;
+}
+
+.content-text-banner {
+    width: min(400px, 90%);
+}
+
+.content-text-banner .title-banner {
+    color: #f3f3f3;
+    -webkit-text-stroke: 1px #1d1d1d;
+    font-size: 50px;
+}
+
+
+
+
+/* TESTE */
+
+.teste {
+    background-image: url(assets/images/bg-banner-home.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 500px;
+    height: 500px;
+    transition: 0.7s;
+    display: none;
+}
+
+.teste:hover {
+    background: url(https://thumbs.gfycat.com/HairyGargantuanDromedary-size_restricted.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+@media(max-width:720px) {
+    .container-header .nav .btn-menu {
+
+        display: block;
+    }
+
+    .side-open {
+        width: 100vw;
+        transform: translate(0);
+    }
 }
