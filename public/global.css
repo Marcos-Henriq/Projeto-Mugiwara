@@ -8,6 +8,49 @@
     text-decoration: none;
 }
 
+:root {
+    --white: #f7f7f7;
+    --blue-100: #CFEEFB;
+    --blue-200: #A1DAF7;
+    --blue-300: #6FB9E9;
+    --blue-400: #4996D3;
+    --blue-500: #1868B7;
+    --blue-600: #11509D;
+    --blue-700: #0C3C83;
+    --blue-800: #072A6A;
+    --blue-900: #041D57;
+
+    --red-100: #FDE4DA;
+    --red-200: #FCC4B5;
+    --red-300: #F69B8F;
+    --red-400: #EE7571;
+    --red-500: #E3454F;
+    --red-600: #C33248;
+    --red-700: #A32242;
+    --red-800: #83163A;
+    --red-900: #6C0D35;
+    --yellow-100: #FDF8D5;
+    --yellow-200: #FCF1AC;
+    --yellow-300: #F8E482;
+    --yellow-400: #F1D561;
+    --yellow-500: #E8C130;
+    --yellow-600: #C7A123;
+    --yellow-700: #A78218;
+    --yellow-800: #86650F;
+    --yellow-900: #6F5009;
+
+
+    --secondary-100: #DEE8F6;
+    --secondary-200: #C0D1EE;
+    --secondary-300: #91A5CD;
+    --secondary-400: #63749B;
+    --secondary-500: #2E3A59;
+    --secondary-600: #212C4C;
+    --secondary-700: #172040;
+    --secondary-800: #0E1533;
+    --secondary-900: #080E2A;
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -16,14 +59,39 @@ body {
     font-family: 'Poppins';
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--secondary-800);
+}
+
+/* a */
+a {
+    padding: 15px;
+    border-radius: 20px;
+    transition: 0.5s ease;
+    color: var(--secondary-800);
+    font-weight: bold;
+}
+
+.nav ul li a:hover {
+    color: var(--secondary-800);
+    background-color: var(--blue-100);
+}
+
 /* BTN´S  */
 .btn {
     font-family: 'Poppins';
     font-weight: bold;
     border: none;
     background: transparent;
-    border-radius: 15px;
+    border-radius: 20px;
     padding: 15px;
+    text-transform: none;
+    transition: 0.5s ease;
 }
 
 .btn-yellow {
@@ -31,21 +99,25 @@ body {
     background-color: #FFE01F;
 }
 
-
-
-
-.inicial {
-    background: #646464;
-    background: url(assets/images/bg-banner-mugiwara.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100vh;
+.btn-white {
+    color: #1d1d1d;
+    background-color: #f3f3f3;
 }
 
+.btn-blue {
+    color: var(--white);
+    background-color: var(--blue-500);
+}
+
+.btn-blue:hover {
+    box-shadow: 0 5px 15px var(--blue-200);
+}
+
+
+
+
 .wrapper {
-    width: min(1000px, 90vw);
+    width: 90vw;
     margin: 0 auto;
 }
 
@@ -57,6 +129,9 @@ body {
     width: 100%;
     padding: 10px 0px;
     min-height: 10vh;
+    background-color: #f7f7f77e;
+    position: sticky;
+    top: 0;
 }
 
 .container-header {
@@ -97,7 +172,6 @@ body {
     outline: none;
     cursor: pointer;
     transition: 0.7s ease;
-    display: none;
 }
 
 .container-header .nav .btn-menu:hover {
@@ -110,78 +184,56 @@ body {
     width: 30px;
 }
 
+/* FOOTER */
 
-/* SIDE MENU */
+footer {
+    margin: 50px 0px 0px 0px;
+    background-color: var(--blue-700);
+}
 
-.side-menu {
-    position: absolute;
-    transition: 0.7s ease;
-    padding: 20px;
-    right: 0;
-    transform: translate(100%, 0);
-    width: min(400px, 100%);
-    height: calc(100vh - (10vh + 20px));
-    background-color: #f3f3f3;
+.container-footer {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 20vh;
+}
+
+.container-footer .left-side {
+    width: min(500px, 100%);
+    height: 300px;
+    display: flex;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: center;
+    flex-direction: column;
 }
 
 
-.side-open {
-    transform: translate(0);
+
+.container-footer .left-side h2 {
+    color: var(--white);
+
 }
 
-.container-banner {
-    width: 100%;
-    height: calc(100vh - (10vh + 20px));
+.container-footer .left-side p {
+    color: var(--white);
+
+}
+
+.container-footer .right-side {
+    width: min(500px, 100%);
+    height: 200px;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
 }
 
-.content-text-banner {
-    width: min(400px, 90%);
+.container-footer .right-side h2 {
+    color: var(--white);
 }
 
-.content-text-banner .title-banner {
-    color: #f3f3f3;
-    -webkit-text-stroke: 1px #1d1d1d;
-    font-size: 50px;
-}
-
-
-
-
-/* TESTE */
-
-.teste {
-    background-image: url(assets/images/bg-banner-home.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 500px;
-    height: 500px;
-    transition: 0.7s;
-    display: none;
-}
-
-.teste:hover {
-    background: url(https://thumbs.gfycat.com/HairyGargantuanDromedary-size_restricted.gif);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-@media(max-width:720px) {
-    .container-header .nav .btn-menu {
-
-        display: block;
-    }
-
-    .side-open {
-        width: 100vw;
-        transform: translate(0);
-    }
+.container-footer .right-side .nav ul {
+    gap: 20px;
+    display: flex;
 }
