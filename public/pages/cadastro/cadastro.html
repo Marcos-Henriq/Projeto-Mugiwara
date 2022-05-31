@@ -10,6 +10,7 @@
 
     <script src="../../js/funcoes.js"></script>
     <link rel="stylesheet" href="../../global.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -36,49 +37,36 @@
         </div>
 
     </header>
+    <main class="container-main">
+        <div class="wrapper">
+            <div class="container-form">
+                <div class="left-side">
+                    <div class="header-left-side">
+                        <h2>Se Cadastre.</h2>
+                        <p>Digite seus dados.</p>
+                    </div>
+                    <form class="form-default" action="">
+                        <div class="input-box">
+                            <label for="">Email:</label>
+                            <input type="text" placeholder="@">
+                        </div>
+                        <div class="input-box">
+                            <label for="">Confirme Senha</label>
+                            <input type="password" placeholder="Confirme ">
+                        </div>
+                        <div class="input-box">
+                            <label for="">Senha</label>
+                            <input type="password" placeholder="senha">
+                        </div>
+                        <button class="btn btn-blue">Entrar</button>
+                    </form>
+                </div>
 
-
-    <div class="banner">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
             </div>
         </div>
-        <div class="container">
-            <div class="card">
-                <h2>Olá de volta!</h2>
-                <div class="formulario">
+    </main>
 
 
-                    <span class="tipo_campo">E-mail:</span>
-                    <input id="email_input" type="text" placeholder="Login">
-
-                    <span class="tipo_campo">Senha:</span>
-                    <input id="senha_input" type="password" placeholder="******">
-
-                    <button class="btn" onclick="entrar()">Entrar</button>
-
-
-                </div>
-
-                <div id="div_aguardar" class="loading-div">
-                    <img src="./assets/circle-loading.gif" id="loading-gif">
-                </div>
-
-                <div id="div_erros_login">
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!--footer inicio-->
-    <div class="footer">
-        <div class="container">
-            <h4>Feito com amor por um aluno &hearts;SPTech &copy; 2022</h4>
-        </div>
-    </div>
-    <!--footer fim-->
 
 </body>
 
@@ -155,5 +143,7 @@
     function sumirMensagem() {
         cardErro.style.display = "none"
     }
+
+
 
 </script>
