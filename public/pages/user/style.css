@@ -1,0 +1,43 @@
+
+@import url(../../global.css);
+body{
+    background: var(--secondary-100);
+}
+
+.header-profile{
+    height: 10vh;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+
+}
+
+.user-profile{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+.img-profile{
+    width: 50px;
+    background: var();
+}
+
+.container-main{
+    height: 90vh;
+    display: flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+.side-menu{
+    position:absolute;
+    display: flex;
+    align-items: center;
+    width: 5vw;
+    height: 60vh;
+    border-radius:20px;
+    padding: 20px;
+    background-color: #1868b76b;
+}
+.container-home{
+    width: 100%;
+}
