@@ -24,38 +24,42 @@
 .container-colecao-cards {
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 0px;
     flex-wrap: wrap;
 
 }
 
 .card {
     border-radius: 10px;
-    
+
     width: min(250px, 100%);
     height: 350px;
-    background:url(../../assets/cards/Monkey\ D.\ Luffy.png);
     background-position: center;
     background-size: cover;
     display: flex;
 }
-.card .info{
+
+
+
+.card .info {
     width: 100%;
     display: flex;
     justify-content: center;
     flex-direction: column;
     padding: 2rem 2rem;
-background-color:#e345507c;
+    background-color: #A1DAF77c;
     align-self: flex-end;
 }
-.card .info h3{
-    color: var(--secondary-100);
+
+.card .info h3,
+h4 {
+    color: var(--secondary-800);
 }
-.card .info h4{
-    color: var(--yellow-500);
-}
-.card .info .tag-tripulacao{
+
+
+.card .info .tag-tripulacao {
     padding: 5px;
     border-radius: 20px;
     display: flex;

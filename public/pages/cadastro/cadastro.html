@@ -1,81 +1,75 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>The Crews | Cadastro</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="../../js/funcoes.js"></script>
-    <link rel="stylesheet" href="../../global.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+  <title>The Crews | Cadastro</title>
 
-  <body>
-    <!--Header-->
+  <script src="../../js/funcoes.js"></script>
+  <link rel="stylesheet" href="../../global.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-    <header class="header-main">
-      <div class="wrapper">
-        <div class="container-header">
-          <div class="logo">
-            <img src="../../assets/icons/logo.png" alt="" />
-          </div>
-          <div class="nav">
-            <ul>
-              <li><a href="../login/login.html">Coleções</a></li>
-              <li><a href="../login/login.html">Entrar</a></li>
-              <li>
-                <a class="btn btn-blue" href="cadastro.html">Cadastre-se</a>
-              </li>
-            </ul>
-          </div>
+<body>
+  <!--Header-->
+
+  <header class="header-main">
+    <div class="wrapper">
+      <div class="container-header">
+        <div class="logo">
+          <a href="../../index.html"><img src="../../assets/icons/logo.png" alt="" /></a>
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="../login/login.html">Coleções</a></li>
+            <li><a href="../login/login.html">Entrar</a></li>
+            <li>
+              <a class="btn btn-blue" href="cadastro.html">Cadastre-se</a>
+            </li>
+          </ul>
         </div>
       </div>
-    </header>
-    <main class="container-main">
-      <div class="wrapper">
-        <div class="container-form">
-          <div class="left-side">
-            <div class="header-left-side">
-              <h2>Se Cadastre.</h2>
-              <p>Digite seus dados.</p>
+    </div>
+  </header>
+  <main class="container-main">
+    <div class="wrapper">
+      <div class="container-form">
+        <div class="left-side">
+          <div class="header-left-side">
+            <h2>Se Cadastre.</h2>
+            <p>Digite seus dados.</p>
+          </div>
+          <form class="form-default" id="form" action=''>
+            <div class="input-box">
+              <label for="">Nome:</label>
+              <input type="text" id="inputNome" placeholder="Monkey D. Luffy" />
             </div>
-            <form class="form-default" id="form"action=''>
-              <div class="input-box">
-                <label for="">Nome:</label>
-                <input
-                  type="text"
-                  id="inputNome"
-                  placeholder="Monkey D. Luffy"
-                />
-              </div>
-              <div class="input-box">
-                <label for="">Email:</label>
-                <input type="text" id="inputEmail" placeholder="@" />
-              </div>
+            <div class="input-box">
+              <label for="">Email:</label>
+              <input type="text" id="inputEmail" placeholder="@" />
+            </div>
 
-              <div class="input-box">
-                <label for="">Senha</label>
-                <input type="password" id="inputSenha" placeholder="senha" />
-              </div>
-              <div class="input-box">
-                <label for="">Confirme Senha</label>
-                <input
-                  type="password"
-                  id="inputConfirmeSenha"
-                  placeholder="Confirme "
-                />
-              </div>
-              <button onclick="cadastrar()" class="btn btn-blue">
-                Cadastro
-              </button>
-            </form>
-          </div>
+            <div class="input-box">
+              <label for="">Senha</label>
+              <input type="password" id="inputSenha" placeholder="senha" />
+            </div>
+            <div class="input-box">
+              <label for="">Confirme Senha</label>
+              <input type="password" id="inputConfirmeSenha" placeholder="Confirme " />
+            </div>
+            <button onclick="cadastrar()" class="btn btn-blue">
+              Cadastro
+            </button>
+          </form>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
+
 </html>
 
 <script>
