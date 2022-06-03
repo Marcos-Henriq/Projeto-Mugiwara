@@ -8,6 +8,6 @@ email varchar(50),
 senha varchar(30)
 );
 
-start transaction;
+
 
 
