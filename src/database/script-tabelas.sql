@@ -1,6 +1,7 @@
 create database bdcrew;
 use bdcrew;
 
+
 create table Usuario(
 idUsuario int primary key auto_increment,
 nome varchar(50),
@@ -39,8 +40,6 @@ insert into Pirata(nome,fkBando,caminhoImagem) values
 ('Roronoa Zoro',1,'../../assets/cards/Zoro.png'),
 ('Sanji',1,'../../assets/cards/Sanji.png');
 
+select * from Pirata;
 
-
-
-
-select * from Usuario;
+select * from Pirata join Bando on fkBando = idBando;
