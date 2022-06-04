@@ -37,8 +37,8 @@ function listarPiratas() {
                         <img src="${item.caminhoImagem}" alt="">
                         <div class="info">
                             <div class="header-info">
-                                <p class="tag-tripulacao">${item.nome}</p>
-                                <h4>${item.nome}</h4>
+                                <p class="tag-tripulacao">${item.nomeBando}</p>
+                                <h4>${item.nomePirata}</h4>
                             </div>
                         </div>
                     </div>`

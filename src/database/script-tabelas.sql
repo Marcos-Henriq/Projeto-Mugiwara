@@ -11,12 +11,12 @@ senha varchar(30)
 
 create table Bando(
 idBando int primary key auto_increment,
-nome varchar(50)
+nomeBando varchar(50)
 );
 
 create table Pirata(
 idPirata int auto_increment,
-nome varchar(50),
+nomePirata varchar(50),
 fkBando int,
 foreign key(fkBando) references Bando(idBando),
 primary key(idPirata,fkBando),
@@ -32,10 +32,10 @@ fkUsuario int,
 foreign key(fkUsuario) references Usuario(idUsuario)
 );
 
-insert into Bando(nome)values
+insert into Bando(nomeBando)values
 ('Chapéu de Palha');
 
-insert into Pirata(nome,fkBando,caminhoImagem) values
+insert into Pirata(nomePirata,fkBando,caminhoImagem) values
 ('Monkey D. Luffy',1,'../../assets/cards/Luffy.png'),
 ('Roronoa Zoro',1,'../../assets/cards/Zoro.png'),
 ('Sanji',1,'../../assets/cards/Sanji.png');
@@ -43,3 +43,4 @@ insert into Pirata(nome,fkBando,caminhoImagem) values
 select * from Pirata;
 
 select * from Pirata join Bando on fkBando = idBando;
+

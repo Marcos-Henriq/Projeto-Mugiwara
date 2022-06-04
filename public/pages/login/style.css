@@ -27,6 +27,8 @@
 }
 
 .form-default .btn {
+    display: block;
+    text-align: center;
     width: 100%;
     background-image: linear-gradient(to right, var(--blue-500), var(--blue-200));
 }
