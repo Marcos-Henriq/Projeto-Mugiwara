@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    min-height: 90vh;
 }
 
 .left-side {
@@ -58,4 +58,29 @@
 
 .input-box ::placeholder {
     color: var(--secondary-400);
+}
+
+.radio-box input[type='radio'] {
+    visibility: hidden;
+}
+
+.radio-box input[type='radio']:checked+label {
+    background-color: var(--blue-200);
+    border-radius: 150%;
+
+}
+
+.radio-box label img {
+
+    padding: 10px;
+    width: 80px;
+
+}
+
+.radio-box {
+    width: 100%;
+    display: flex;
+    margin: 20px 0px 20px 0px;
+    justify-content: space-evenly;
+    flex-direction: row;
 }

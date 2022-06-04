@@ -25,13 +25,18 @@ function limparSessao() {
 }
 
 function listarPiratas() {
-    fetch('/avisos/listar').then(function (resposta) {
+    fetch('/piratas/listar').then(function (resposta) {
         if (resposta.ok) {
             resposta.json().then(function (resposta) {
+
                 console.log('Dados:', JSON.stringify(resposta))
+                var spanNumeroRegistro = document.getElementById('countRegistro')
+                spanNumeroRegistro.innerHTML = resposta.length
                 containerCards.innerHTML = ''
+
                 for (let i = 0; i < resposta.length; i++) {
                     var item = resposta[i]
+
                     containerCards.innerHTML +=
                         `<div id="card" class="card">
                         <img src="${item.caminhoImagem}" alt="">
@@ -47,7 +52,9 @@ function listarPiratas() {
         }
 
     })
+
 }
+
 
 
 // carregamento (loading)

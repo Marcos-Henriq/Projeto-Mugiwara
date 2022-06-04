@@ -32,6 +32,9 @@ fkUsuario int,
 foreign key(fkUsuario) references Usuario(idUsuario)
 );
 
+insert into Usuario values
+(null,'Marcos Henrique','marcos.silva@gmail.com','marcos1234');
+
 insert into Bando(nomeBando)values
 ('Chapéu de Palha');
 
@@ -40,7 +43,13 @@ insert into Pirata(nomePirata,fkBando,caminhoImagem) values
 ('Roronoa Zoro',1,'../../assets/cards/Zoro.png'),
 ('Sanji',1,'../../assets/cards/Sanji.png');
 
+insert into Pirata(nomePirata,fkBando,caminhoImagem) values
+('Jinbe',1,'../../assets/cards/Jinbe.png');
+
 select * from Pirata;
 
 select * from Pirata join Bando on fkBando = idBando;
 
+
+
+select nomePirata from Pirata where idPirata=1; 
