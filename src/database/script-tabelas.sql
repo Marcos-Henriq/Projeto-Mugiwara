@@ -35,21 +35,54 @@ foreign key(fkUsuario) references Usuario(idUsuario)
 insert into Usuario values
 (null,'Marcos Henrique','marcos.silva@gmail.com','marcos1234');
 
+-- chapeus de palha
+
 insert into Bando(nomeBando)values
 ('Chapéu de Palha');
 
 insert into Pirata(nomePirata,fkBando,caminhoImagem) values
-('Monkey D. Luffy',1,'../../assets/cards/Luffy.png'),
-('Roronoa Zoro',1,'../../assets/cards/Zoro.png'),
-('Sanji',1,'../../assets/cards/Sanji.png');
+('Monkey D. Luffy',1,'../../assets/cards/chapeusDePalha/Luffy.png'),
+('Roronoa Zoro',1,'../../assets/cards/chapeusDePalha/Zoro.png'),
+('Sanji',1,'../../assets/cards/chapeusDePalha/Sanji.png'),
+('Jinbe',1,'../../assets/cards/chapeusDePalha/Jinbe.png'),
+('Nico Robin',1,'../../assets/cards/chapeusDePalha/Nico Robin.png'),
+('Nami',1,'../../assets/cards/chapeusDePalha/Nami.png'),
+('Tony T. Chopper',1,'../../assets/cards/chapeusDePalha/Chopper.png'),
+('Franky',1,'../../assets/cards/chapeusDePalha/Franky.png'),
+('Usopp',1,'../../assets/cards/chapeusDePalha/Usopp.png'),
+('Brook',1,'../../assets/cards/chapeusDePalha/Brook.png');
 
+-- piratas heart
+
+insert into Bando(nomeBando)values
+('Piratas Heart');
 insert into Pirata(nomePirata,fkBando,caminhoImagem) values
-('Jinbe',1,'../../assets/cards/Jinbe.png');
+('Trafalgar D. Water Law',2,'../../assets/cards/heart/Tragalfar Law.png'),
+('Bepo',2,'../../assets/cards/heart/Bepo.png');
+
+-- marinha
+
+insert into Bando(nomeBando)values
+('Marinha');
+insert into Pirata(nomePirata,fkBando,caminhoImagem) values
+('Akainu',3,'../../assets/cards/marinha/Akainu.png'),
+('Kizaru',3,'../../assets/cards/marinha/Kizaru.png'),
+('Aokiji',3,'../../assets/cards/marinha/Aokiji.png'),
+('Fujitora',3,'../../assets/cards/marinha/Fujitora.png'),
+('Garp',3,'../../assets/cards/marinha/Garp.png'),
+('Kobe',3,'../../assets/cards/marinha/Kobe.png'),
+('Tashigi',3,'../../assets/cards/marinha/Tashigi.png'),
+('Smoker',3,'../../assets/cards/marinha/Smoker.png');
+
+-- big mom
+insert into Bando(nomeBando)values
+('Piratas Big Mom');
+insert into Pirata(nomePirata,fkBando,caminhoImagem) values
+('Charlotte Linlin',4,'../../assets/cards/bigMom/Big Mom.png');
+
 
 select * from Pirata;
 
 select * from Pirata join Bando on fkBando = idBando;
 
 
-
-select nomePirata from Pirata where idPirata=1; 

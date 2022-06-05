@@ -1,43 +1,128 @@
-
 @import url(../../global.css);
-body{
-    background: var(--secondary-100);
+
+body {
+    background-image: url(../../assets/images/blurry-gradient-haikei\ \(6\).svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.header-profile{
+.header-profile {
     height: 10vh;
-    background-color: var(--white);
+    background: var(--white);
+    backdrop-filter: blur(5.1px);
     display: flex;
     align-items: center;
 
 }
 
-.user-profile{
+.user-profile {
     display: flex;
     align-items: center;
-    gap:10px;
+    gap: 10px;
 }
-.img-profile{
-    width: 50px;
+
+.img-profile {
+    width: 40px;
     background: var();
 }
 
-.container-main{
+.container-main {
     height: 90vh;
     display: flex;
-    justify-content:flex-start;
-    align-items:center;
+    justify-content: flex-start;
+    align-items: center;
 }
-.side-menu{
-    position:absolute;
+
+.side-menu {
+    z-index: 2;
+    position: absolute;
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 5vw;
-    height: 60vh;
-    border-radius:20px;
-    padding: 20px;
-    background-color: #1868b76b;
+    height: 90vh;
+    padding: 10px;
+    background: linear-gradient(to bottom, var(--white), var(--secondary-100));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
 }
-.container-home{
+
+.side-menu li {
+    position: relative;
+    transition: .7s ease-in-out;
     width: 100%;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: var(--secondary-400);
+}
+
+.side-menu a {
+    padding: 0px 10px;
+
+}
+
+.side-menu li:hover a {
+
+    background-color: var(--blue-500);
+
+}
+
+
+
+
+.side-menu span {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    transition: .1s ease-in-out;
+    margin-left: 50px;
+    position: absolute;
+    padding: 10px;
+    background-color: var(--secondary-200);
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.side-menu li:hover span {
+    opacity: 1;
+
+}
+
+.side-menu svg {
+    width: 30px;
+}
+
+.side-menu svg path {
+    fill: var(--secondary-400);
+}
+
+.side-menu li:hover svg path {
+
+    fill: var(--secondary-200);
+
+}
+
+.container-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 5vw;
+    width: min(95vw, 100vw);
+    height: 90vh;
+    background: rgba(255, 255, 255, 0.3777);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.container-card {
+    border-radius: 16px;
+    width: 98%;
+    height: 95%;
+    background: rgba(255, 255, 255, 0.3777);
 }

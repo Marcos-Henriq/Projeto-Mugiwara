@@ -21,7 +21,7 @@ function limparSessao() {
     // aguardar();
     sessionStorage.clear();
     // finalizarAguardar();
-    window.location = "../login.html";
+    window.location = "../pages/login/login.html";
 }
 
 function listarPiratas() {
@@ -54,7 +54,9 @@ function listarPiratas() {
     })
 
 }
+function escolherPirata() {
 
+}
 
 
 // carregamento (loading)

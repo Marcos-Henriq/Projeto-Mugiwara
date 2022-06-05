@@ -129,6 +129,7 @@ a {
 /* HEADER */
 
 .header-main {
+    z-index: 2;
     width: 100%;
     padding: 10px 0px;
     min-height: 10vh;

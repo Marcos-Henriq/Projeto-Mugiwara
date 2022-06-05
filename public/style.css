@@ -61,6 +61,8 @@ body {
     margin: 50px 0px 50px 0px;
 }
 
+
+
 .container-cardgame {
     background: url(assets/images/bg-banner-home.jpg);
     background-position: center;
@@ -149,11 +151,15 @@ h3 {
 
 }
 
-.container-cards .card.teach {
-    background-color: var(--yellow-500);
-    background-image: url(assets/icons/jollyroger-teach.webp);
+.container-cards .card.marine {
+    background-color: var(--white);
+    background-image: url(assets/icons/marine-logo.png);
     background-position: center;
-    background-size: cover;
+    background-size: 100%;
     background-repeat: no-repeat;
 
+}
+
+.card.marine h3 {
+    color: var(--blue-500);
 }
