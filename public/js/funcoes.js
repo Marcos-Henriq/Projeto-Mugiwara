@@ -21,7 +21,7 @@ function limparSessao() {
     // aguardar();
     sessionStorage.clear();
     // finalizarAguardar();
-    window.location = "../pages/login/login.html";
+    window.location = "../login/login.html";
 }
 
 function listarPiratas() {
@@ -44,6 +44,7 @@ function listarPiratas() {
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
                                 <h4>${item.nomePirata}</h4>
+                                <button onclick="">Add</button>
                             </div>
                         </div>
                     </div>`

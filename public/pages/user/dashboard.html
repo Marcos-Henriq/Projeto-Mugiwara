@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(),listarPiratas()">
     <header class="header-profile">
         <div class="wrapper">
 
@@ -92,7 +92,19 @@
 
         <div class="container-home">
             <div class="container-card">
-                s
+                <div class="header-container-colecao">
+                    <h1>Coleções</h1>
+                    <div class="container-filtros">
+                        <p>Total: <span id="countRegistro"></span> </p>
+                        <select class="selectFiltro" onchange="escolherPirata()">
+                            <option value="">Escolha</option>
+                        </select>
+                        <button></button>
+                    </div>
+                </div>
+                <div id="containerCards" class="container-colecao-cards ">
+                    <h1>Nenhuma Carta.</h1>
+                </div>
             </div>
         </div>
 
