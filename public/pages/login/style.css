@@ -9,21 +9,39 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
 }
 
 .left-side {
-    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+    padding: 1rem;
     border-radius: 10px;
-    width: min(400px, 100%);
+    width: min(500px, 100%);
     background-color: #f7f7f765;
+}
+
+.left-side .header-left-side {
+    width: 90%;
+    align-self: center;
+}
+
+.left-side .sair {
+    align-self: flex-end;
+    font-size: 2rem;
+}
+
+.form-default {
+    width: 90%;
+    align-self: center;
 }
 
 .form-default .input-box {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin: 20px 0px 20px 0px;
+    margin: 2rem 0px 2rem 0px;
 }
 
 .form-default .btn {
@@ -31,6 +49,7 @@
     text-align: center;
     width: 100%;
     background-image: linear-gradient(to right, var(--blue-500), var(--blue-200));
+    margin-bottom: 2rem;
 }
 
 .input-box label {
@@ -55,4 +74,38 @@
 
 .input-box ::placeholder {
     color: var(--secondary-400);
+}
+
+.right-side {
+    min-height: 80vh;
+    padding: 25px;
+    border-radius: 10px 0px 0px 10px;
+    width: min(400px, 100%);
+    background: url(../../assets/images/bg-card-login.jpg);
+
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.right-side .header-right-side {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.right-side h2 {
+
+    color: var(--secondary-100);
+}
+
+.right-side .content {
+    font-size: 2rem;
+}
+
+.right-side .logo {
+    width: 50px;
 }

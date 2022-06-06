@@ -47,8 +47,12 @@
                     <h1>Coleções</h1>
                     <div class="container-filtros">
                         <p>Total: <span id="countRegistro"></span> </p>
-                        <select class="selectFiltro" onchange="escolherPirata()">
-                            <option value="">Escolha</option>
+                        <select class="selectFiltro" id="selectFiltro" onchange="escolherPirata()">
+                            <option value="*">Todos</option>
+                            <option value="1">Chapéu de Palha</option>
+                            <option value="2">Piratas Heart</option>
+                            <option value="3">Marinha</option>
+                            <option value="4">Big Mom</option>
                         </select>
 
                     </div>

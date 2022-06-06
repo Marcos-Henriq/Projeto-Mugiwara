@@ -31,7 +31,7 @@ function listarPiratas() {
 
                 console.log('Dados:', JSON.stringify(resposta))
                 var spanNumeroRegistro = document.getElementById('countRegistro')
-                spanNumeroRegistro.innerHTML = resposta.length
+                spanNumeroRegistro.innerHTML = resposta.length + 1
                 containerCards.innerHTML = ''
 
                 for (let i = 0; i < resposta.length; i++) {
@@ -56,9 +56,180 @@ function listarPiratas() {
 
 }
 function escolherPirata() {
+    var selectExibirPiratas = selectFiltro.value;
 
+    if (selectExibirPiratas == '*') {
+        fetch('/piratas/listar').then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+
+                    console.log('Dados:', JSON.stringify(resposta))
+                    var spanNumeroRegistro = document.getElementById('countRegistro')
+                    spanNumeroRegistro.innerHTML = resposta.length
+                    containerCards.innerHTML = ''
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var item = resposta[i]
+
+                        containerCards.innerHTML +=
+                            `<div id="card" class="card">
+                        <img src="${item.caminhoImagem}" alt="">
+                        <div class="info">
+                            <div class="header-info">
+                                <p class="tag-tripulacao">${item.nomeBando}</p>
+                                <h4>${item.nomePirata}</h4>
+                                <button onclick="">Add</button>
+                            </div>
+                        </div>
+                    </div>`
+                    }
+                })
+            }
+        })
+    } else if (selectExibirPiratas == '1') {
+
+        fetch(`/piratas/listarPorBando/${selectExibirPiratas}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+
+                    console.log('Dados:', JSON.stringify(resposta))
+                    var spanNumeroRegistro = document.getElementById('countRegistro')
+                    spanNumeroRegistro.innerHTML = resposta.length
+                    containerCards.innerHTML = ''
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var item = resposta[i]
+
+                        containerCards.innerHTML +=
+                            `<div id="card" class="card">
+                        <img src="${item.caminhoImagem}" alt="">
+                        <div class="info">
+                            <div class="header-info">
+                                <p class="tag-tripulacao">${item.nomeBando}</p>
+                                <h4>${item.nomePirata}</h4>
+                                <button onclick="">Add</button>
+                            </div>
+                        </div>
+                    </div>`
+                    }
+                })
+            }
+        })
+    } else if (selectExibirPiratas == '2') {
+        fetch(`/piratas/listarPorBando/${selectExibirPiratas}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+
+                    console.log('Dados:', JSON.stringify(resposta))
+                    var spanNumeroRegistro = document.getElementById('countRegistro')
+                    spanNumeroRegistro.innerHTML = resposta.length
+                    containerCards.innerHTML = ''
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var item = resposta[i]
+
+                        containerCards.innerHTML +=
+                            `<div id="card" class="card">
+                        <img src="${item.caminhoImagem}" alt="">
+                        <div class="info">
+                            <div class="header-info">
+                                <p class="tag-tripulacao">${item.nomeBando}</p>
+                                <h4>${item.nomePirata}</h4>
+                                <button onclick="">Add</button>
+                            </div>
+                        </div>
+                    </div>`
+                    }
+                })
+            }
+        })
+    } else if (selectExibirPiratas == '3') {
+        fetch(`/piratas/listarPorBando/${selectExibirPiratas}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+
+                    console.log('Dados:', JSON.stringify(resposta))
+                    var spanNumeroRegistro = document.getElementById('countRegistro')
+                    spanNumeroRegistro.innerHTML = resposta.length
+                    containerCards.innerHTML = ''
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var item = resposta[i]
+
+                        containerCards.innerHTML +=
+                            `<div id="card" class="card">
+                        <img src="${item.caminhoImagem}" alt="">
+                        <div class="info">
+                            <div class="header-info">
+                                <p class="tag-tripulacao">${item.nomeBando}</p>
+                                <h4>${item.nomePirata}</h4>
+                                <button onclick="">Add</button>
+                            </div>
+                        </div>
+                    </div>`
+                    }
+                })
+            }
+        })
+    } else if (selectExibirPiratas == '4') {
+        fetch(`/piratas/listarPorBando/${selectExibirPiratas}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+
+                    console.log('Dados:', JSON.stringify(resposta))
+                    var spanNumeroRegistro = document.getElementById('countRegistro')
+                    spanNumeroRegistro.innerHTML = resposta.length
+                    containerCards.innerHTML = ''
+
+                    for (let i = 0; i < resposta.length; i++) {
+                        var item = resposta[i]
+
+                        containerCards.innerHTML +=
+                            `<div id="card" class="card">
+                        <img src="${item.caminhoImagem}" alt="">
+                        <div class="info">
+                            <div class="header-info">
+                                <p class="tag-tripulacao">${item.nomeBando}</p>
+                                <h4>${item.nomePirata}</h4>
+                                <button onclick="">Add</button>
+                            </div>
+                        </div>
+                    </div>`
+                    }
+                })
+            }
+        })
+    }
 }
+function listarPorUsuario() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    fetch(`/piratas/listarPorUsuario/${idUsuario}`).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log('Dados:', JSON.stringify(resposta))
+                var spanNumeroRegistro = document.getElementById('countRegistro')
+                spanNumeroRegistro.innerHTML = resposta.length
+                containerCards.innerHTML = ''
 
+                for (let i = 0; i < resposta.length; i++) {
+                    var item = resposta[i]
+
+                    containerCards.innerHTML +=
+                        `<div id="card" class="card">
+                    <img src="${item.caminhoImagem}" alt="">
+                    <div class="info">
+                        <div class="header-info">
+                            <p class="tag-tripulacao">${item.nomeBando}</p>
+                            <h4>${item.nomePirata}</h4>
+                            <button onclick="">Add</button>
+                        </div>
+                    </div>
+                </div>`
+                }
+            })
+        }
+    })
+}
 
 // carregamento (loading)
 // function aguardar() {

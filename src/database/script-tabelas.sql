@@ -79,10 +79,18 @@ insert into Bando(nomeBando)values
 ('Piratas Big Mom');
 insert into Pirata(nomePirata,fkBando,caminhoImagem) values
 ('Charlotte Linlin',4,'../../assets/cards/bigMom/Big Mom.png');
-
+update Pirata set nomePirata = 'Big Mom' where idPirata = 22;
+update Pirata set nomePirata = 'Trafalgar Law' where idPirata = 12;
 
 select * from Pirata;
 
 select * from Pirata join Bando on fkBando = idBando;
 
+desc Deck;
 
+insert into Deck (fkPirata,fkBando,fkUsuario) values
+(1,1,1),
+(2,1,1),
+(3,1,1);
+
+select * from Pirata join Bando on Pirata.fkBando = Bando.idBando join Deck on Deck.fkPirata = Pirata.idPirata join Usuario on fkUsuario = idUsuario where Usuario.idUsuario = 1;

@@ -15,45 +15,29 @@
 </head>
 
 <body>
-  <!--Header-->
 
-  <header class="header-main">
-    <div class="wrapper">
-      <div class="container-header">
-        <div class="logo">
-          <a href="../../index.html"><img src="../../assets/icons/logo.png" alt="" /></a>
-          <h2>The Crews</h2>
-        </div>
-        <div class="nav">
-          <ul>
-            <li><a href="../colecoes/colecoes.html">Coleções</a></li>
-            <li><a href="../login/login.html">Entrar</a></li>
-            <li>
-              <a class="btn btn-blue" href="cadastro.html">Cadastre-se</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </header>
   <main class="container-main">
     <div class="wrapper">
       <div class="container-form">
+        <div class="right-side">
+
+          <div class="header-right-side">
+            <img class="logo" src="../../assets/icons/logo.png" alt="">
+            <h2>The Crew.</h2>
+          </div>
+          <div class="content">
+
+            <h2>Comece sua Aventura.</h2>
+
+          </div>
+        </div>
         <div class="left-side">
+          <a class="sair" href="../../index.html">x</a>
           <div class="header-left-side">
-            <h2>Se Cadastre.</h2>
+            <h2>Cadastre-se</h2>
             <p>Digite seus dados.</p>
           </div>
           <form class="form-default" id="form" action=''>
-            <div class="radio-box">
-              <input type="radio" id="heart" name="fav_language" value="heart">
-              <label for="heart"><img class="img-profile" src="../../assets/icons/jollyroger-heart.png"
-                  alt=""></label><br>
-              <input type="radio" id="mugiwara" name="fav_language" value="mugiwara">
-              <label for="mugiwara"><img class="img-profile" src="../../assets/icons/logo.png" alt=""></label><br>
-              <input type="radio" id="teach" name="fav_language" value="teach">
-              <label for="teach"><img class="img-profile" src="../../assets/icons/jollyroger-teach.webp" alt=""></label>
-            </div>
             <div class="input-box">
               <label for="">Nome:</label>
               <input type="text" id="inputNome" placeholder="Monkey D. Luffy" />
@@ -74,6 +58,7 @@
             <a onclick="cadastrar()" class="btn btn-blue">
               Cadastro
             </a>
+            <p>Já tem uma conta?<a href="../login/login.html">Entrar</a></p>
           </form>
         </div>
       </div>

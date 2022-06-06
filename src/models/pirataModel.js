@@ -8,9 +8,21 @@ function listar() {
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
-function listarNumeroRegistro() {
-    console.log("ACESSEI O PIRATA  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
-    var instrucao = `select nomeBando,nomePirata,count(idPirata) as registro from Pirata join Bando on fkBando = idBando;`;
+function listarPorUsuario(idUsuario) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
+    var instrucao = `
+    select * from Pirata join Bando on Pirata.fkBando = Bando.idBando join
+     Deck on Deck.fkPirata = Pirata.idPirata join
+      Usuario on fkUsuario = idUsuario where Usuario.idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+function listarPorBando(idBando) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listarPorUsuario()");
+    var instrucao = `
+    select * from Pirata join Bando on fkBando = idBando where idBando = ${idBando};
+    `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
@@ -18,5 +30,6 @@ function listarNumeroRegistro() {
 
 module.exports = {
     listar,
-    listarNumeroRegistro
+    listarPorUsuario,
+    listarPorBando
 }

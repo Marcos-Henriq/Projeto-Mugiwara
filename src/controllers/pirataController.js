@@ -17,23 +17,60 @@ function listar(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
-function listarNumeroRegistro(req, res) {
-    pirataModel.listarNumeroRegistro().then(function (resultado) {
-        if (resultado.length > 0) {
-            res.status(200).json(resultado);
-        } else {
-            res.status(204).send("Nenhum resultado encontrado!")
-        }
-    }).catch(function (erro) {
-        console.log(erro);
-        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    })
+function listarPorUsuario(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    pirataModel.listarPorUsuario(idUsuario)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+function listarPorBando(req, res) {
+    var idBando = req.params.idBando;
+
+    pirataModel.listarPorBando(idBando)
+        .then(
+            function (resultado) {
+                if (resultado.length > 0) {
+                    res.status(200).json(resultado);
+                } else {
+                    res.status(204).send("Nenhum resultado encontrado!");
+                }
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "Houve um erro ao buscar os avisos: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
 }
 
 module.exports = {
     testar,
     listar,
-    listarNumeroRegistro
+    listarPorUsuario,
+    listarPorBando
+
 
 }

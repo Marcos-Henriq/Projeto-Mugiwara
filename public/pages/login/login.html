@@ -15,32 +15,23 @@
 </head>
 
 <body>
-
-    <!--Header-->
-
-    <header class="header-main">
-        <div class="wrapper">
-
-            <div class="container-header">
-                <div class="logo">
-                    <a href="../../index.html"><img src="../../assets/icons/logo.png" alt="" /></a>
-                    <h2>The Crews</h2>
-                </div>
-                <div class="nav">
-                    <ul>
-                        <li> <a href="../colecoes/colecoes.html">Coleções</a> </li>
-                        <li> <a href="login.html">Entrar</a> </li>
-                        <li> <a class="btn btn-blue" href="../cadastro/cadastro.html">Cadastre-se</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-    </header>
     <main class="container-main">
         <div class="wrapper">
             <div class="container-form">
+                <div class="right-side">
+
+                    <div class="header-right-side">
+                        <img class="logo" src="../../assets/icons/logo.png" alt="">
+                        <h2>The Crew.</h2>
+                    </div>
+                    <div class="content">
+
+                        <h2>Bem Vindo de volta.</h2>
+
+                    </div>
+                </div>
                 <div class="left-side">
+                    <a class="sair" href="../../index.html">x</a>
                     <div class="header-left-side">
                         <h2>Login</h2>
                         <p>Digite seus dados.</p>
@@ -55,6 +46,7 @@
                             <input type="password" id="inputSenha" placeholder="senha">
                         </div>
                         <a onclick="entrar()" class="btn btn-blue">Entrar</a>
+                        <p>Não tem uma conta?<a href="../cadastro/cadastro.html">Cadastre-se</a></p>
                     </form>
                 </div>
 
@@ -70,8 +62,6 @@
 
 
     function entrar() {
-
-
         var emailVar = inputEmail.value;
         var senhaVar = inputSenha.value;
 
@@ -107,7 +97,7 @@
 
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
 
                     setTimeout(function () {
                         window.location = "../user/dashboard.html";

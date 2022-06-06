@@ -93,7 +93,7 @@ h4 {
     color: var(--secondary-900);
 }
 
-.card .info {
+.card .info button {
     display: none;
 }
 

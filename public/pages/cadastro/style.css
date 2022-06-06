@@ -2,38 +2,55 @@
 
 
 .container-main {
-    background-color: var(--secondary-100);
+    background: var(--secondary-100);
 }
 
 .container-form {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 90vh;
+    min-height: 100vh;
 }
 
 .left-side {
-    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    min-height: 70vh;
+    padding: 1rem;
     border-radius: 10px;
-    width: min(400px, 100%);
+    width: min(500px, 100%);
     background-color: #f7f7f765;
+    backdrop-filter: blur(15px);
 }
 
+.left-side .header-left-side {
+    width: 90%;
+    align-self: center;
+}
 
+.left-side .sair {
+    align-self: flex-end;
+    font-size: 2rem;
+}
+
+.form-default {
+    width: 90%;
+    align-self: center;
+}
 
 .form-default .input-box {
     display: flex;
     flex-direction: column;
     gap: 2px;
-    margin: 20px 0px 20px 0px;
+    margin: 2rem 0px 2rem 0px;
 }
 
 .form-default .btn {
     display: block;
-
     text-align: center;
     width: 100%;
     background-image: linear-gradient(to right, var(--blue-500), var(--blue-200));
+    margin-bottom: 2rem;
 }
 
 .input-box label {
@@ -60,27 +77,36 @@
     color: var(--secondary-400);
 }
 
-.radio-box input[type='radio'] {
-    visibility: hidden;
-}
+.right-side {
+    min-height: 100vh;
+    padding: 25px;
+    border-radius: 10px 0px 0px 10px;
+    width: min(400px, 100%);
+    background: url(../../assets/images/bg-cadastro.jpg);
 
-.radio-box input[type='radio']:checked+label {
-    background-color: var(--blue-200);
-    border-radius: 150%;
-
-}
-
-.radio-box label img {
-
-    padding: 10px;
-    width: 80px;
-
-}
-
-.radio-box {
-    width: 100%;
+    background-size: cover;
+    background-position: center;
     display: flex;
-    margin: 20px 0px 20px 0px;
-    justify-content: space-evenly;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.right-side .header-right-side {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.right-side h2 {
+
+    color: var(--secondary-500);
+}
+
+.right-side .content {
+    font-size: 2rem;
+}
+
+.right-side .logo {
+    width: 50px;
 }
