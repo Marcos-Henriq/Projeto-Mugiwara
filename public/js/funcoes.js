@@ -109,7 +109,7 @@ function escolherPirata() {
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
                                 <h4>${item.nomePirata}</h4>
                                 <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
-                                <button class="btn-remove" id="btnDelete" onclick="deletarDeck(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">-</button>
+                                
                             </div>
                         </div>
                     </div>`
