@@ -60,6 +60,9 @@ body {
     transition: 0.7s;
     cursor: pointer;
     transition: .7 ease-in-out;
+    border: 5px solid #dcdcdc;
+    background: #dcdcdc;
+    ;
 }
 
 .card:hover {

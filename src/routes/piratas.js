@@ -16,5 +16,14 @@ router.get("/listarPorUsuario/:idUsuario", function (req, res) {
 router.get("/listarPorBando/:idBando", function (req, res) {
     pirataController.listarPorBando(req, res);
 });
+router.get("/verificarPirataDeck/:idUsuario,:idBando,:idPirata", function (req, res) {
+    pirataController.verificarPirataDeck(req, res);
+});
+router.post("/adicionarPirata", function (req, res) {
+    pirataController.adicionarPirata(req, res);
+});
+router.delete("/deletarDeck", function (req, res) {
+    pirataController.deletarDeck(req, res);
+});
 
 module.exports = router;

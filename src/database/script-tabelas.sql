@@ -9,6 +9,8 @@ email varchar(50),
 senha varchar(30)
 );
 
+alter table Usuario add constraint unique(idUsuario, email, senha);
+
 create table Bando(
 idBando int primary key auto_increment,
 nomeBando varchar(50)
@@ -29,14 +31,17 @@ foreign key(fkPirata) references Pirata(idPirata),
 fkBando int,
 foreign key(fkBando) references Bando(idBando),
 fkUsuario int,
-foreign key(fkUsuario) references Usuario(idUsuario)
+foreign key(fkUsuario) references Usuario(idUsuario),
+statusPirata char(10),
+primary key(fkPirata,fkBando,fkUsuario)
 );
+
 
 insert into Usuario values
 (null,'Marcos Henrique','marcos.silva@gmail.com','marcos1234');
 
 -- chapeus de palha
-
+select * from Usuario;
 insert into Bando(nomeBando)values
 ('Chapéu de Palha');
 
@@ -80,17 +85,17 @@ insert into Bando(nomeBando)values
 insert into Pirata(nomePirata,fkBando,caminhoImagem) values
 ('Charlotte Linlin',4,'../../assets/cards/bigMom/Big Mom.png');
 update Pirata set nomePirata = 'Big Mom' where idPirata = 22;
-update Pirata set nomePirata = 'Trafalgar Law' where idPirata = 12;
+update Pirata set nomePirata = 'Trafalgar Law' where idPirata = 11;
 
 select * from Pirata;
 
 select * from Pirata join Bando on fkBando = idBando;
 
-desc Deck;
+insert into Deck (fkUsuario,fkBando,fkPirata,statusPirata) values
+(1,1,3,'cadastrado');
 
-insert into Deck (fkPirata,fkBando,fkUsuario) values
-(1,1,1),
-(2,1,1),
-(3,1,1);
+select * from Deck;
 
-select * from Pirata join Bando on Pirata.fkBando = Bando.idBando join Deck on Deck.fkPirata = Pirata.idPirata join Usuario on fkUsuario = idUsuario where Usuario.idUsuario = 1;
+select * from Pirata join Bando on Pirata.fkBando = Bando.idBando join Deck on Deck.fkPirata = Pirata.idPirata join Usuario on fkUsuario = idUsuario where Usuario.idUsuario = 3;
+
+select nomePirata,count(fkPirata) from Deck join Pirata on fkPirata = idPirata group by Pirata.nomePirata;

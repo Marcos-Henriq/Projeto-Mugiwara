@@ -16,6 +16,7 @@ body {
 
 }
 
+
 .user-profile {
     display: flex;
     align-items: center;
@@ -117,17 +118,16 @@ body {
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.24);
 }
 
 .container-card {
-    border-radius: 16px;
     display: flex;
     flex-wrap: wrap;
-    width: 98%;
-    height: 95%;
-    background: rgba(255, 255, 255, 0.3777);
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-100);
     overflow-y: scroll;
+    padding: 2rem 0rem;
 }
 
 ::-webkit-scrollbar {
@@ -149,15 +149,27 @@ body {
 
 .header-container-colecao {
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
+.header-container-colecao h1 {
+    font-size: 2.5rem;
+}
+
 .header-container-colecao .container-filtros {
-    width: 100%;
+    width: 80%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px 0px;
+
+}
+
+.container-filtros p {
+    font-size: 1.3rem;
 }
 
 .container-filtros .selectFiltro {
@@ -178,7 +190,7 @@ body {
 }
 
 .container-colecao-cards {
-
+    padding: 2rem 2rem;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -189,15 +201,17 @@ body {
 .card {
     position: relative;
     border-radius: 10px;
-
-    width: min(250px, 100%);
+    border: 5px solid #dcdcdc;
+    background: #dcdcdc;
+    width: min(300px, 100%);
     background-position: center;
     background-size: cover;
     display: flex;
-    transition: 0.7s;
+
     cursor: pointer;
-    transition: .7 ease-in-out;
+    transition: .5s ease-in-out;
 }
+
 
 .card:hover {
     box-shadow: 0px .8rem .2rem var(--secondary-200);
@@ -246,4 +260,16 @@ h4 {
     flex-direction: column;
     gap: 20px;
     align-self: flex-start;
+}
+
+.btn-add {
+    padding: 10px;
+    background: rgb(7, 42, 106);
+    background: linear-gradient(25deg, rgba(7, 42, 106, 1) 0%, rgba(24, 104, 183, 1) 35%, rgba(161, 218, 247, 1) 100%);
+    border: none;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    color: var(--secondary-100);
+    font-weight: bold;
+    cursor: pointer;
 }

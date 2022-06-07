@@ -31,7 +31,7 @@ function listarPiratas() {
 
                 console.log('Dados:', JSON.stringify(resposta))
                 var spanNumeroRegistro = document.getElementById('countRegistro')
-                spanNumeroRegistro.innerHTML = resposta.length + 1
+                spanNumeroRegistro.innerHTML = resposta.length
                 containerCards.innerHTML = ''
 
                 for (let i = 0; i < resposta.length; i++) {
@@ -44,7 +44,7 @@ function listarPiratas() {
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
                                 <h4>${item.nomePirata}</h4>
-                                <button onclick="">Add</button>
+                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                             </div>
                         </div>
                     </div>`
@@ -54,6 +54,36 @@ function listarPiratas() {
 
     })
 
+}
+function listarPorUsuario() {
+    var idUsuario = sessionStorage.ID_USUARIO;
+    fetch(`/piratas/listarPorUsuario/${idUsuario}`).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log('Dados:', JSON.stringify(resposta))
+                var spanNumeroRegistro = document.getElementById('countRegistro')
+                spanNumeroRegistro.innerHTML = resposta.length
+                containerCards.innerHTML = ''
+
+                for (let i = 0; i < resposta.length; i++) {
+                    var item = resposta[i]
+
+                    containerCards.innerHTML +=
+                        `<div id="card" class="card card-small">
+                    <img src="${item.caminhoImagem}" alt="">
+                    <div class="info">
+                        <div class="header-info">
+                            <p class="tag-tripulacao">${item.nomeBando}</p>
+                            <h4>${item.nomePirata}</h4>
+                            <button class="btn-add" id="btnAdd" onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                            <button class="btn-remove" id="btnDelete" onclick="deletarDeck(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">-</button>
+                        </div>
+                    </div>
+                </div>`
+                }
+            })
+        }
+    })
 }
 function escolherPirata() {
     var selectExibirPiratas = selectFiltro.value;
@@ -78,7 +108,8 @@ function escolherPirata() {
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
                                 <h4>${item.nomePirata}</h4>
-                                <button onclick="">Add</button>
+                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                                <button class="btn-remove" id="btnDelete" onclick="deletarDeck(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">-</button>
                             </div>
                         </div>
                     </div>`
@@ -107,7 +138,7 @@ function escolherPirata() {
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
                                 <h4>${item.nomePirata}</h4>
-                                <button onclick="">Add</button>
+                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                             </div>
                         </div>
                     </div>`
@@ -135,7 +166,7 @@ function escolherPirata() {
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
                                 <h4>${item.nomePirata}</h4>
-                                <button onclick="">Add</button>
+                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                             </div>
                         </div>
                     </div>`
@@ -163,7 +194,7 @@ function escolherPirata() {
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
                                 <h4>${item.nomePirata}</h4>
-                                <button onclick="">Add</button>
+                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                             </div>
                         </div>
                     </div>`
@@ -191,7 +222,7 @@ function escolherPirata() {
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
                                 <h4>${item.nomePirata}</h4>
-                                <button onclick="">Add</button>
+                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                             </div>
                         </div>
                     </div>`
@@ -201,35 +232,59 @@ function escolherPirata() {
         })
     }
 }
-function listarPorUsuario() {
-    var idUsuario = sessionStorage.ID_USUARIO;
-    fetch(`/piratas/listarPorUsuario/${idUsuario}`).then(function (resposta) {
+function adicionarPirata(idUsuario, idBando, idPirata) {
+
+    fetch('/piratas/adicionarPirata', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            idUsuarioServer: idUsuario,
+            idBandoServer: idBando,
+            idPirataServer: idPirata,
+        }),
+    }).then(function (resposta) {
+        console.log('resposta: ', resposta);
         if (resposta.ok) {
-            resposta.json().then(function (resposta) {
-                console.log('Dados:', JSON.stringify(resposta))
-                var spanNumeroRegistro = document.getElementById('countRegistro')
-                spanNumeroRegistro.innerHTML = resposta.length
-                containerCards.innerHTML = ''
-
-                for (let i = 0; i < resposta.length; i++) {
-                    var item = resposta[i]
-
-                    containerCards.innerHTML +=
-                        `<div id="card" class="card">
-                    <img src="${item.caminhoImagem}" alt="">
-                    <div class="info">
-                        <div class="header-info">
-                            <p class="tag-tripulacao">${item.nomeBando}</p>
-                            <h4>${item.nomePirata}</h4>
-                            <button onclick="">Add</button>
-                        </div>
-                    </div>
-                </div>`
-                }
-            })
+            alert('Carta Cadastrada em seu Deck')
+        } else {
+            alert('Carta já Cadastrada')
+            throw 'Houve um erro ao tentar realizar o cadastro!';
         }
-    })
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+    return false;
 }
+
+function deletarDeck(idUsuario, idBando, idPirata) {
+    fetch('/piratas/deletarDeck', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            idUsuarioServer: idUsuario,
+            idBandoServer: idBando,
+            idPirataServer: idPirata,
+        }),
+    }).then(function (resposta) {
+        console.log('resposta: ', resposta);
+        if (resposta.ok) {
+            alert('Carta removida do seu deck')
+            window.location = "deck.html";
+        } else {
+            alert('Erro ao Cadastrar')
+            throw 'Houve um erro ao tentar realizar o cadastro!';
+        }
+    }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+    });
+    return false;
+}
+
+
 
 // carregamento (loading)
 // function aguardar() {
