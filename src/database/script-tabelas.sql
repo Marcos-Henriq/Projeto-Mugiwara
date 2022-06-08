@@ -38,7 +38,7 @@ primary key(fkPirata,fkBando,fkUsuario)
 
 
 insert into Usuario values
-(null,'Marcos Henrique','marcos.silva@gmail.com','marcos1234');
+(null,'Marcos ADM','marcos.adm@gmail.com','marcosadmin');
 
 -- chapeus de palha
 select * from Usuario;
@@ -94,8 +94,13 @@ select * from Pirata join Bando on fkBando = idBando;
 insert into Deck (fkUsuario,fkBando,fkPirata,statusPirata) values
 (1,1,3,'cadastrado');
 
-select * from Deck;
+select * from Usuario;
 
 select * from Pirata join Bando on Pirata.fkBando = Bando.idBando join Deck on Deck.fkPirata = Pirata.idPirata join Usuario on fkUsuario = idUsuario where Usuario.idUsuario = 3;
 
-select nomePirata,count(fkPirata) from Deck join Pirata on fkPirata = idPirata group by Pirata.nomePirata;
+select Pirata.*, count(fkPirata) as 'qtdPirata' from Deck join Pirata on fkPirata = idPirata
+ group by Pirata.nomePirata order by qtdPirata limit 1;
+ 
+ select Pirata.*, count(fkPirata) as 'qtdPirata' from Deck join Pirata on fkPirata = idPirata
+ group by Pirata.nomePirata order by qtdPirata desc limit 1;
+ 

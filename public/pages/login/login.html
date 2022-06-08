@@ -99,10 +99,16 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NOME_USUARIO = json.nome;
                     sessionStorage.ID_USUARIO = json.idUsuario;
+                    if (json.email == 'marcos.adm@gmail.com' & json.senha == 'marcosadmin') {
+                        setTimeout(function () {
+                            window.location = "../adm/dashboard.html";
+                        }, 500);
+                    } else {
+                        setTimeout(function () {
+                            window.location = "../user/dashboard.html";
+                        }, 500); // apenas para exibir o loading
+                    }
 
-                    setTimeout(function () {
-                        window.location = "../user/dashboard.html";
-                    }, 500); // apenas para exibir o loading
 
                 });
 

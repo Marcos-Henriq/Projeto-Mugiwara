@@ -1,0 +1,321 @@
+@import url(../../global.css);
+
+body {
+    background-image: url(../../assets/images/blurry-gradient-haikei\ \(6\).svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header-profile {
+    height: 10vh;
+    background: var(--white);
+    backdrop-filter: blur(5.1px);
+    display: flex;
+    align-items: center;
+
+}
+
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.img-profile {
+    width: 40px;
+    background: var();
+}
+
+.container-main {
+    height: 90vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.side-menu {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 5vw;
+    height: 90vh;
+    padding: 10px;
+    background: linear-gradient(to bottom, var(--white), var(--secondary-100));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.side-menu li {
+    position: relative;
+    transition: .7s ease-in-out;
+    width: 100%;
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+    color: var(--secondary-400);
+}
+
+.side-menu a {
+    padding: 0px 10px;
+
+}
+
+.side-menu li:hover a {
+
+    background-color: var(--blue-500);
+
+}
+
+
+
+
+.side-menu span {
+    display: flex;
+    justify-content: center;
+    width: 100px;
+    transition: .1s ease-in-out;
+    margin-left: 50px;
+    position: absolute;
+    padding: 10px;
+    background-color: var(--secondary-200);
+    border-radius: 10px;
+    opacity: 0;
+}
+
+.side-menu li:hover span {
+    opacity: 1;
+
+}
+
+.side-menu svg {
+    width: 30px;
+}
+
+.side-menu svg path {
+    fill: var(--secondary-400);
+}
+
+.side-menu li:hover svg path {
+
+    fill: var(--secondary-200);
+
+}
+
+.container-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 5vw;
+    width: min(95vw, 100vw);
+    height: 90vh;
+    background: rgba(255, 255, 255, 0.3777);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.container-card {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    background-color: var(--secondary-100);
+    overflow-y: scroll;
+    padding: 2rem 0rem;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.3777);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 15px;
+    background-color: var(--blue-500);
+}
+
+.container-colecao {
+    width: 100%;
+}
+
+.header-container-colecao {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.header-container-colecao h1 {
+    font-size: 2.5rem;
+}
+
+.header-container-colecao .container-filtros {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+
+}
+
+.container-filtros p {
+    font-size: 1.3rem;
+}
+
+.container-filtros .selectFiltro {
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border: none;
+    border: 2px solid var(--secondary-100);
+    border-radius: 10px;
+}
+
+.container-filtros .selectFiltro:focus {
+    outline: none;
+    box-shadow: 0px .8rem .1rem var(--secondary-100);
+    -webkit-box-shadow: 0px 0px .8rem .1rem var(--secondary-100);
+
+}
+
+.container-colecao-cards {
+    padding: 2rem 2rem;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.card {
+    position: relative;
+    border-radius: 10px;
+    border: 5px solid #dcdcdc;
+    background: #dcdcdc;
+    width: min(300px, 100%);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+
+.card:hover {
+    box-shadow: 0px .8rem .2rem var(--secondary-200);
+    -webkit-box-shadow: 0px 0px .8rem .2rem var(--secondary-200);
+    transform: translateY(-10px);
+}
+
+
+.card img {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.card .info {
+    position: absolute;
+    border-radius: 0px 0px 10px 10px;
+    width: 100%;
+
+    display: flex;
+    padding: 1rem;
+    background-color: #f3f3f3c9;
+    align-self: flex-end;
+}
+
+.card .info h3,
+h4 {
+    color: var(--secondary-900);
+}
+
+
+.card .info .tag-tripulacao {
+    font-size: .8rem;
+    border-radius: 20px;
+    display: flex;
+
+    justify-content: center;
+    color: var(--secondary-400);
+    font-weight: bold;
+}
+
+.card .info .header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-self: flex-start;
+}
+
+.btn-add {
+    padding: 10px;
+    background: rgb(7, 42, 106);
+    background: linear-gradient(25deg, rgba(7, 42, 106, 1) 0%, rgba(24, 104, 183, 1) 35%, rgba(161, 218, 247, 1) 100%);
+    border: none;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    color: var(--secondary-100);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* CONTAINER METRICAS */
+
+.container-metricas {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+}
+
+.container-metricas h1 {
+    width: 100%;
+}
+
+.container-metricas .card-metricas {
+    width: 300px;
+    display: flex;
+    border-radius: 18px;
+    column-gap: 10px;
+
+    border: 5px solid #dcdcdc;
+    background: rgba(255, 255, 255, 0.295);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.container-metricas .card-metricas img {
+    border-radius: 10px 0px 0px 10px;
+    width: 180px;
+}
+
+.containerCardsMetricas {
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.295);
+    box-shadow: 0 4px 30px #0000001a;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+}
