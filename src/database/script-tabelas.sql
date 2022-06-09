@@ -100,3 +100,4 @@ select Pirata.*, count(fkPirata) as 'qtdPirata' from Deck join Pirata on fkPirat
  select Pirata.*, count(fkPirata) as 'qtdPirata' from Deck join Pirata on fkPirata = idPirata
  group by Pirata.nomePirata order by qtdPirata desc limit 1;
  
+select Bando.*,count(fkBando) as 'qtdAdicoes' from Pirata join Bando on fkBando = idBando group by Bando.nomeBando;

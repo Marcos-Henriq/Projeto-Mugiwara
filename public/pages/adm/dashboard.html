@@ -7,12 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="../../assets/icons/favicon.ico" type="image/x-icon">
     <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../js/funcoesAdm.js"></script>
     <script src="../../js/funcoes.js"></script>
+
     <link rel="stylesheet" href="../../global.css">
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="validarSessao()">
+<body onload="validarSessao(),listarPiratasTabela(),listarBando()">
     <header class="header-profile">
         <div class="wrapper">
 
@@ -93,12 +96,17 @@
 
         <div class="container-home">
             <div class="container-card">
+                <div class="container-grafico">
+                    <h1>Gráfico</h1>
+                    <canvas id="myChart" style="height: 100%;
+                    width: 100%;"></canvas>
+                </div>
                 <div class="header-container-colecao">
-                    <h1>Gerenciar Cartas.</h1>
+                    <h1>Visualizar Cartas.</h1>
                     <div class="container-filtros">
                         <p>Total: <span id="countRegistro"></span> </p>
                         <div>
-                            <select class="selectFiltro" id="selectFiltro" onchange="escolherPirata()">
+                            <select class="selectFiltro" id="selectFiltro" onchange="escolherPirataTabela()">
                                 <option value="*">Todos</option>
                                 <option value="1">Chapéu de Palha</option>
                                 <option value="2">Piratas Heart</option>
@@ -109,8 +117,8 @@
                         </div>
                     </div>
                 </div>
-                <div id="containerCards" class="container-colecao-cards ">
-                    <h1>Nenhuma Carta.</h1>
+                <div class="container-colecao-cards ">
+
                     <table class="table-piratas">
                         <thead>
                             <tr>
@@ -120,13 +128,8 @@
 
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td> <img class="img-table" src="../../assets/cards/bigMom/Big Mom.png"> </td>
-                                <td>Charlotte Linlin</td>
-                                <td>Big Mom</td>
+                        <tbody id="tabelaCartas">
 
-                            </tr>
 
                         </tbody>
                     </table>
@@ -142,4 +145,64 @@
 </html>
 <script>
     document.title = sessionStorage.NOME_USUARIO + ' - Dashboard'
+    function listarBando() {
+
+        fetch('/piratas/listarBando').then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (resposta) {
+                    const labels = [
+
+                    ]
+                    const dados = {
+                        labels: labels,
+                        datasets: [{
+                            data: [],
+                            backgroundColor: [
+                                '#E3454F',
+                                '#E8C130',
+                                '#1868B7',
+                                '#D8566B'
+                            ]
+                        }]
+                    };
+                    for (var i = 0; i < resposta.length; i++) {
+                        var item = resposta[i];
+
+
+                        if (item.nomeBando == 'Chapéu de Palha') {
+                            dados.datasets[0].data.push(item.qtdAdicoes);
+                            dados.labels.push(item.nomeBando);
+                        } else if (item.nomeBando == 'Piratas Heart') {
+                            dados.datasets[0].data.push(item.qtdAdicoes);
+                            dados.labels.push(item.nomeBando);
+                        } else if (item.nomeBando == 'Marinha') {
+                            dados.datasets[0].data.push(item.qtdAdicoes);
+                            dados.labels.push(item.nomeBando);
+                        } else if (item.nomeBando == 'Piratas Big Mom') {
+                            dados.datasets[0].data.push(item.qtdAdicoes);
+                            dados.labels.push(item.nomeBando);
+                        }
+                    }
+                    const config = {
+                        type: 'bar',
+                        data: dados,
+                        options: {}
+                    };
+
+                    const myChart = new Chart(
+                        document.getElementById('myChart'),
+                        config
+                    );
+                    console.log('Dados:', JSON.stringify(resposta))
+
+                })
+            }
+
+
+        })
+
+    }
+
+
+
 </script>

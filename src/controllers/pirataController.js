@@ -17,6 +17,19 @@ function listar(req, res) {
         res.status(500).json(erro.sqlMessage);
     });
 }
+function listarBando(req, res) {
+    pirataModel.listarBando().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar os avisos: ", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
 function numeroPirata(req, res) {
     pirataModel.numeroPirata().then(function (resultado) {
         if (resultado.length > 0) {
@@ -186,7 +199,8 @@ module.exports = {
     adicionarPirata,
     verificarPirataDeck,
     deletarDeck,
-    numeroPirata
+    numeroPirata,
+    listarBando
 
 
 }

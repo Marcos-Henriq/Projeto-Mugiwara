@@ -57,6 +57,7 @@ function listarPiratas() {
     })
 
 }
+
 function listarPorUsuario() {
     var idUsuario = sessionStorage.ID_USUARIO;
     fetch(`/piratas/listarPorUsuario/${idUsuario}`).then(function (resposta) {
@@ -90,6 +91,7 @@ function listarPorUsuario() {
         }
     })
 }
+
 function escolherPirata() {
     var selectExibirPiratas = selectFiltro.value;
 
