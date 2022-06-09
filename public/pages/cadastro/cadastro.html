@@ -58,7 +58,7 @@
             <a onclick="cadastrar()" class="btn btn-blue">
               Cadastro
             </a>
-            <p>Já tem uma conta?<a href="../login/login.html">Entrar</a></p>
+            <p>Já tem uma conta?</p><a href="../login/login.html">Entrar</a>
           </form>
         </div>
       </div>
@@ -112,17 +112,17 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
+          // cardErro.style.display = "block";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+          // mensagem_erro.innerHTML =
+          //   "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
 
           setTimeout(() => {
             window.location = '../login/login.html'
-          }, "2000");
+          }, "500");
 
-          limparFormulario();
-          finalizarAguardar();
+          // limparFormulario();
+          // finalizarAguardar();
         } else {
           throw "Houve um erro ao tentar realizar o cadastro!";
         }

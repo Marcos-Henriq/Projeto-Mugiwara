@@ -1,15 +1,21 @@
 @import url(../../global.css);
 
 body {
-    background-color: #f7f7f7;
+    background-color: #f3f3f3;
 }
 
 .container-colecao {
     width: 100%;
+    min-height: 80vh;
 }
 
 .header-container-colecao {
     width: 100%;
+
+}
+
+.header-container-colecao h1 {
+    text-align: center;
 
 }
 
@@ -52,18 +58,15 @@ body {
 .card {
     position: relative;
     border-radius: 10px;
-
-    width: min(280px, 100%);
+    border: 5px solid #dcdcdc;
+    background: #dcdcdc;
+    width: min(300px, 100%);
     background-position: center;
     background-size: cover;
     display: flex;
-    transition: 0.7s;
-    cursor: pointer;
-    transition: .7 ease-in-out;
-    border: 5px solid #dcdcdc;
-    background: #dcdcdc;
-    ;
+    transition: .5s ease-in-out;
 }
+
 
 .card:hover {
     box-shadow: 0px .8rem .2rem var(--secondary-200);
@@ -81,10 +84,12 @@ body {
 
 
 .card .info {
+
     position: absolute;
     border-radius: 0px 0px 10px 10px;
     width: 100%;
-
+    flex-direction: column;
+    gap: 1.5rem;
     display: flex;
     padding: 1rem;
     background-color: #f3f3f3c9;
@@ -93,12 +98,11 @@ body {
 
 .card .info h3,
 h4 {
+    font-size: 1.2rem;
+    text-align: center;
     color: var(--secondary-900);
 }
 
-.card .info button {
-    display: none;
-}
 
 .card .info .tag-tripulacao {
     font-size: .8rem;
@@ -115,4 +119,53 @@ h4 {
     flex-direction: column;
     gap: 20px;
     align-self: flex-start;
+}
+
+.btn-add {
+    position: absolute;
+    top: .5rem;
+    left: .5rem;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 15px;
+    display: none;
+    font-size: 1.5rem;
+    color: var(--secondary-100);
+    font-weight: bold;
+    cursor: pointer;
+    transition: .4s ease-in-out;
+    border: 2px solid var(--blue-500);
+
+    background: var(--blue-500);
+}
+
+.btn-add:hover {
+    border: 2px solid var(--blue-500);
+
+    background: var(--blue-500);
+}
+
+.btn-remove {
+    top: .5rem;
+    right: .5rem;
+    display: none;
+    position: absolute;
+    align-self: flex-start;
+    justify-self: flex-end;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 1.5rem;
+    transition: .4s ease-in-out;
+    color: var(--secondary-100);
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid var(--red-500);
+
+    background-color: var(--red-500);
+}
+
+.btn-remove:hover {
+    border: 2px solid var(--red-500);
+
+    background-color: var(--red-500);
 }

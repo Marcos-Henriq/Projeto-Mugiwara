@@ -9,7 +9,7 @@
     <title></title>
     <script src="../../js/funcoes.js"></script>
     <link rel="stylesheet" href="../../global.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="deck.css">
 </head>
 
 <body onload="validarSessao(),listarPorUsuario()">
@@ -93,12 +93,21 @@
 
         <div class="container-home">
             <div class="container-card">
+
+                <div class="header-user">
+                </div>
+                <div class="content-profile">
+                    <div>
+                        <img class="user-logo" src="../../assets/icons/jollyroger-heart.png" alt="">
+                        <h1 id="nomeUser"></h1>
+                    </div>
+                    <a class="btn btn-white" href="config.html">Perfil</a>
+                </div>
+
                 <div class="header-container-colecao">
                     <h1>Minhas Cartas</h1>
                     <div class="container-filtros">
                         <p>Total: <span id="countRegistro"></span> </p>
-
-                        <button></button>
                     </div>
                 </div>
                 <div id="containerCards" class="container-colecao-cards ">
@@ -114,5 +123,6 @@
 
 </html>
 <script>
+    nomeUser.innerHTML = sessionStorage.NOME_USUARIO;
     document.title = sessionStorage.NOME_USUARIO + ' - Deck'
 </script>

@@ -9,10 +9,10 @@
     <title>Dashboard</title>
     <script src="../../js/funcoes.js"></script>
     <link rel="stylesheet" href="../../global.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="config.css">
 </head>
 
-<body onload="validarSessao(),listarPiratas()">
+<body onload="validarSessao(),listarPorUsuario()">
     <header class="header-profile">
         <div class="wrapper">
 
@@ -92,6 +92,30 @@
         </div>
 
         <div class="container-home">
+            <div class="container-user">
+                <div class="header-user">
+                </div>
+                <div class="content-profile">
+                    <div>
+                        <img class="user-logo" src="../../assets/icons/jollyroger-heart.png" alt="">
+                        <h1 id="nomeUser"></h1>
+                    </div>
+
+                </div>
+                <div class="container-main-user">
+                    <div class="linha-dados">
+
+                        <h2>Email: </h2><span class="span-dados" id="idEmail"></span>
+                    </div>
+                    <div class="linha-dados">
+
+                        <h2>Numero de Cartas Adicionadas: </h2><span class="span-dados" id="countRegistro">0</span>
+                    </div>
+                </div>
+                <!-- <div class="footer-user">
+                    <a class="btn btn-excluir" onclick="deletarUsuario(sessionStorage.ID_USUARIO)">Excluir Conta</a>
+                </div> -->
+            </div>
 
         </div>
 
@@ -102,5 +126,32 @@
 
 </html>
 <script>
+    nomeUser.innerHTML = sessionStorage.NOME_USUARIO;
     document.title = sessionStorage.NOME_USUARIO + ' - Dashboard'
+    idEmail.innerHTML = sessionStorage.EMAIL_USUARIO;
+    // function deletarUsuario(idUsuario) {
+    //     var idUsuario = sessionStorage.ID_USUARIO
+    //     fetch('/usuarios/deletarUsuario', {
+    //         method: 'DELETE',
+    //         headers: {
+    //             'Content-Type': 'application/json',
+    //         },
+    //         body: JSON.stringify({
+    //             idUsuarioServer: idUsuario,
+
+    //         }),
+    //     }).then(function (resposta) {
+    //         console.log('resposta: ', resposta);
+    //         if (resposta.ok) {
+    //             alert('Carta removida do seu deck')
+    //             window.location = "../../index.html";
+    //         } else {
+    //             alert('Erro ao excluir')
+    //             throw 'Houve um erro ao tentar excluir!';
+    //         }
+    //     }).catch(function (resposta) {
+    //         console.log(`#ERRO: ${resposta}`);
+    //     });
+    //     return false;
+    // }
 </script>

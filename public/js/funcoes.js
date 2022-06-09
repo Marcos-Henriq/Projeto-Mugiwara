@@ -40,12 +40,14 @@ function listarPiratas() {
                     containerCards.innerHTML +=
                         `<div id="card" class="card">
                         <img src="${item.caminhoImagem}" alt="">
+                        <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                         <div class="info">
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
-                                <h4>${item.nomePirata}</h4>
-                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                               
+                                
                             </div>
+                            <h4>${item.nomePirata}</h4>
                         </div>
                     </div>`
                 }
@@ -63,6 +65,7 @@ function listarPorUsuario() {
                 console.log('Dados:', JSON.stringify(resposta))
                 var spanNumeroRegistro = document.getElementById('countRegistro')
                 spanNumeroRegistro.innerHTML = resposta.length
+
                 containerCards.innerHTML = ''
 
                 for (let i = 0; i < resposta.length; i++) {
@@ -71,13 +74,15 @@ function listarPorUsuario() {
                     containerCards.innerHTML +=
                         `<div id="card" class="card card-small">
                     <img src="${item.caminhoImagem}" alt="">
+                    <button class="btn-add" id="btnAdd" onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                            <button class="btn-remove" id="btnDelete" onclick="deletarDeck(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">-</button>
                     <div class="info">
                         <div class="header-info">
                             <p class="tag-tripulacao">${item.nomeBando}</p>
-                            <h4>${item.nomePirata}</h4>
-                            <button class="btn-add" id="btnAdd" onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
-                            <button class="btn-remove" id="btnDelete" onclick="deletarDeck(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">-</button>
+                            
+                            
                         </div>
+                        <h4>${item.nomePirata}</h4>
                     </div>
                 </div>`
                 }
@@ -103,14 +108,16 @@ function escolherPirata() {
 
                         containerCards.innerHTML +=
                             `<div id="card" class="card">
+                            <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                         <img src="${item.caminhoImagem}" alt="">
                         <div class="info">
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
-                                <h4>${item.nomePirata}</h4>
-                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                                
+                                
                                 
                             </div>
+                            <h4>${item.nomePirata}</h4>
                         </div>
                     </div>`
                     }
@@ -133,13 +140,15 @@ function escolherPirata() {
 
                         containerCards.innerHTML +=
                             `<div id="card" class="card">
+                            <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                         <img src="${item.caminhoImagem}" alt="">
                         <div class="info">
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
-                                <h4>${item.nomePirata}</h4>
-                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                                
+                                
                             </div>
+                            <h4>${item.nomePirata}</h4>
                         </div>
                     </div>`
                     }
@@ -162,12 +171,14 @@ function escolherPirata() {
                         containerCards.innerHTML +=
                             `<div id="card" class="card">
                         <img src="${item.caminhoImagem}" alt="">
+                        <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                         <div class="info">
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
-                                <h4>${item.nomePirata}</h4>
-                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                                
+                                
                             </div>
+                            <h4>${item.nomePirata}</h4>
                         </div>
                     </div>`
                     }
@@ -190,12 +201,14 @@ function escolherPirata() {
                         containerCards.innerHTML +=
                             `<div id="card" class="card">
                         <img src="${item.caminhoImagem}" alt="">
+                        <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                         <div class="info">
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
-                                <h4>${item.nomePirata}</h4>
-                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                                
+                                
                             </div>
+                            <h4>${item.nomePirata}</h4>
                         </div>
                     </div>`
                     }
@@ -218,12 +231,13 @@ function escolherPirata() {
                         containerCards.innerHTML +=
                             `<div id="card" class="card">
                         <img src="${item.caminhoImagem}" alt="">
+                        <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
                         <div class="info">
                             <div class="header-info">
                                 <p class="tag-tripulacao">${item.nomeBando}</p>
-                                <h4>${item.nomePirata}</h4>
-                                <button class="btn-add" id="btnAdd"onclick="adicionarPirata(${sessionStorage.ID_USUARIO},${item.idBando},${item.idPirata})">+</button>
+                                
                             </div>
+                            <h4>${item.nomePirata}</h4>
                         </div>
                     </div>`
                     }
@@ -247,7 +261,7 @@ function adicionarPirata(idUsuario, idBando, idPirata) {
     }).then(function (resposta) {
         console.log('resposta: ', resposta);
         if (resposta.ok) {
-            alert('Carta Cadastrada em seu Deck')
+            alert(`Carta Cadastrada em seu Deck`)
         } else {
             alert('Carta já Cadastrada')
             throw 'Houve um erro ao tentar realizar o cadastro!';
@@ -282,6 +296,31 @@ function deletarDeck(idUsuario, idBando, idPirata) {
         console.log(`#ERRO: ${resposta}`);
     });
     return false;
+}
+
+function metricas() {
+    fetch('/usuarios/numeroUsuario').then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+
+                console.log('Dados:', JSON.stringify(resposta))
+                numeroUsuarios.innerHTML = resposta[0].qtdUsuarios
+
+            })
+        }
+
+    })
+    fetch('/piratas/numeroPirata').then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+
+                console.log('Dados:', JSON.stringify(resposta))
+                numeroCartas.innerHTML = resposta[0].qtdPirata
+
+            })
+        }
+
+    })
 }
 
 

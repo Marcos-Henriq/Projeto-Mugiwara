@@ -91,10 +91,6 @@ select * from Pirata;
 
 select * from Pirata join Bando on fkBando = idBando;
 
-insert into Deck (fkUsuario,fkBando,fkPirata,statusPirata) values
-(1,1,3,'cadastrado');
-
-select * from Usuario;
 
 select * from Pirata join Bando on Pirata.fkBando = Bando.idBando join Deck on Deck.fkPirata = Pirata.idPirata join Usuario on fkUsuario = idUsuario where Usuario.idUsuario = 3;
 

@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="style.css">
+    <script src="js/funcoes.js"></script>
     <title>Home | The Crews</title>
 </head>
 
-<body>
+<body onload="metricas()">
     <div class="inicial">
         <header class="header-main">
             <div class="wrapper">
@@ -49,6 +50,24 @@
             </div>
         </div>
     </div>
+    <div class="metricas">
+        <div class="wrapper">
+            <div class="container-metricas">
+                <div class="card-metrica">
+                    <h1 id="numeroUsuarios">
+                        0
+                    </h1>
+                    <p>Usuarios na Plataforma.</p>
+                </div>
+                <div class="card-metrica">
+                    <h1 id="numeroCartas">
+                        0
+                    </h1>
+                    <p>Numero de Cartas registradas</p>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="cardgame">
         <div class="wrapper">
             <div class="container-cardgame">
@@ -72,13 +91,28 @@
                 </div>
                 <div class="container-cards">
                     <div class="card mugiwara">
-                        <h3>Piratas: Chapéu de Palha.</h3>
+                        <div class="content-text">
+
+                            <h3>Chapéu de Palha.</h3>
+                        </div>
                     </div>
                     <div class="card heart">
-                        <h3>Piratas: Heart</h3>
+                        <div class="content-text">
+
+                            <h3>Heart.</h3>
+                        </div>
                     </div>
                     <div class="card marine">
-                        <h3>Piratas: Barba Negra</h3>
+                        <div class="content-text">
+
+                            <h3>Marinha.</h3>
+                        </div>
+                    </div>
+                    <div class="card bigmom">
+                        <div class="content-text">
+                            <h3>Big Mom.</h3>
+                        </div>
+
                     </div>
                 </div>
             </div>

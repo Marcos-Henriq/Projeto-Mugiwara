@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="validarSessao(),listarPiratas()">
+<body onload="validarSessao()">
     <header class="header-profile">
         <div class="wrapper">
 
@@ -93,25 +93,6 @@
 
         <div class="container-home">
             <div class="container-card">
-                <div class="container-metricas">
-                    <h1>Cartas mais escolhidas.</h1>
-                    <div class="containerCardsMetricas">
-                        <div class="card-metricas">
-                            <img src="../../assets/cards/bigMom/Big Mom.png" alt="">
-                            <h4>Numero de Escolhas.</h4>
-                        </div>
-                        <div class="card-metricas">
-                            <img src="../../assets/cards/bigMom/Big Mom.png" alt="">
-                            <h4>Numero de Escolhas.</h4>
-                        </div>
-                        <div class="card-metricas">
-                            <img src="../../assets/cards/bigMom/Big Mom.png" alt="">
-                            <h4>Numero de Escolhas.</h4>
-                        </div>
-                    </div>
-
-
-                </div>
                 <div class="header-container-colecao">
                     <h1>Gerenciar Cartas.</h1>
                     <div class="container-filtros">
@@ -130,6 +111,25 @@
                 </div>
                 <div id="containerCards" class="container-colecao-cards ">
                     <h1>Nenhuma Carta.</h1>
+                    <table class="table-piratas">
+                        <thead>
+                            <tr>
+                                <th>Carta</th>
+                                <th>Nome Pirata</th>
+                                <th>Bando</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td> <img class="img-table" src="../../assets/cards/bigMom/Big Mom.png"> </td>
+                                <td>Charlotte Linlin</td>
+                                <td>Big Mom</td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>

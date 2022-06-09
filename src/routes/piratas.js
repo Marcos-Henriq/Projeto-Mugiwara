@@ -10,6 +10,9 @@ router.get("/", function (req, res) {
 router.get("/listar", function (req, res) {
     pirataController.listar(req, res);
 });
+router.get("/numeroPirata", function (req, res) {
+    pirataController.numeroPirata(req, res);
+});
 router.get("/listarPorUsuario/:idUsuario", function (req, res) {
     pirataController.listarPorUsuario(req, res);
 });

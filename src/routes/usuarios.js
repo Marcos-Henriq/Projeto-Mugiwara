@@ -10,12 +10,19 @@ router.get("/", function (req, res) {
 router.get("/listar", function (req, res) {
     usuarioController.listar(req, res);
 });
+router.get("/numeroUsuario", function (req, res) {
+    usuarioController.numeroUsuario(req, res);
+});
+
 
 
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {
     usuarioController.cadastrar(req, res);
+})
+router.delete("/deletarUsuario", function (req, res) {
+    usuarioController.deletarUsuario(req, res);
 })
 
 router.post("/autenticar", function (req, res) {

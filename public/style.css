@@ -54,6 +54,32 @@ body {
     width: 100%;
 }
 
+/* CARDS METRICAS */
+
+.container-metricas {
+    border-radius: 16px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.479);
+    height: 20vh;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card-metrica {
+    width: min(400px, 100%);
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+    align-items: center;
+}
+
+.card-metrica p {
+    width: 60%;
+}
 
 /* ANUNCIO Card Game  */
 
@@ -103,7 +129,7 @@ h3 {
 
 .container-colecoes .header-colecoes {
     background-color: var(--secondary-100);
-    position: sticky;
+    margin-bottom: 2rem;
     top: 0;
     width: 100%;
     height: 10vh;
@@ -117,25 +143,40 @@ h3 {
     flex-wrap: wrap;
     justify-content: space-between;
     width: 100%;
+    gap: 2rem;
 }
 
 .container-cards .card {
-    border-radius: 20px;
+    border-radius: 16px;
     width: min(350px, 100%);
-    height: 400px;
-    background-color: var(--blue-400);
+    height: 300px;
     display: flex;
-    padding: 15px;
     justify-content: center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
-.container-cards .card h3 {
-    color: var(--white);
+.container-cards .card .content-text {
+    align-self: flex-end;
+    background: rgba(255, 255, 255, 0.822);
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    width: 100%;
+    padding: 2rem;
+    color: var(--secondary-800);
+
 }
+
+.container-cards .card .content-text h3 {
+    font-size: 1.3rem;
+    text-align: center;
+    color: var(--secondary-800);
+}
+
 
 .container-cards .card.mugiwara {
     background-color: var(--red-600);
-    background-image: url(assets/icons/logo.png);
+    background-image: url(assets/cards/chapeusDePalha/Luffy.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -144,7 +185,7 @@ h3 {
 
 .container-cards .card.heart {
     background-color: var(--yellow-500);
-    background-image: url(assets/icons/jollyroger-heart.png);
+    background-image: url(assets/cards/heart/Tragalfar\ Law.png);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -153,13 +194,18 @@ h3 {
 
 .container-cards .card.marine {
     background-color: var(--white);
-    background-image: url(assets/icons/marine-logo.png);
+    background-image: url(assets/cards/marinha/Akainu.png);
     background-position: center;
     background-size: 100%;
     background-repeat: no-repeat;
 
 }
 
-.card.marine h3 {
-    color: var(--blue-500);
+.container-cards .card.bigmom {
+    background-color: #D8566B;
+    background-image: url(assets/cards/bigMom/Big\ Mom.png);
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+
 }
