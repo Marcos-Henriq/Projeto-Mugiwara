@@ -110,3 +110,30 @@
 .right-side .logo {
     width: 50px;
 }
+.alerta_erro{
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .card_erro {
+      z-index: 1;
+      top: 2rem;
+      right: 2rem;
+      border-radius: 16px;
+    display: none;
+    background:var(--red-500);
+    align-items: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--secondary-100);
+    width: min(400px,100%);
+    position:absolute;
+    border: var(--secondary-100) 1px solid;
+    padding: 10px;
+    
+  }
+  
+  .card_erro #mensagem_erro{
+    font-weight: 500;
+    font-size: 20px;
+  }

@@ -141,6 +141,7 @@
                     const dados = {
                         labels: labels,
                         datasets: [{
+                            label: 'Bandos',
                             data: [],
                             backgroundColor: [
                                 '#E3454F',
@@ -156,7 +157,8 @@
 
                         if (item.nomeBando == 'Chapéu de Palha') {
                             dados.datasets[0].data.push(item.qtdAdicoes);
-                            dados.labels.push(item.nomeBando);
+                            labels.push(item.nomeBando);
+                            
                         } else if (item.nomeBando == 'Piratas Heart') {
                             dados.datasets[0].data.push(item.qtdAdicoes);
                             dados.labels.push(item.nomeBando);

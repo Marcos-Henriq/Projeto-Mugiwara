@@ -91,7 +91,7 @@ select * from Pirata;
 
 select * from Pirata join Bando on fkBando = idBando;
 
-
+select * from Usuario;
 select * from Pirata join Bando on Pirata.fkBando = Bando.idBando join Deck on Deck.fkPirata = Pirata.idPirata join Usuario on fkUsuario = idUsuario where Usuario.idUsuario = 3;
 
 select Pirata.*, count(fkPirata) as 'qtdPirata' from Deck join Pirata on fkPirata = idPirata
