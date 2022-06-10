@@ -1,41 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      rel="shortcut icon"
-      href="../../assets/icons/favicon.ico"
-      type="image/x-icon"
-    />
-    <title>The Crews | Cadastro</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="../../js/funcoes.js"></script>
-    <link rel="stylesheet" href="../../global.css" />
-    <link rel="stylesheet" href="style.css" />
-  </head>
+  <link rel="shortcut icon" href="../../assets/icons/favicon.ico" type="image/x-icon" />
+  <title>The Crews | Cadastro</title>
 
-  <body>
-    <div class="card_erro" id="cardErro">
-      <img
-        id="imgModalError"
-        src="../../assets/icons/bx_error-circle.svg"
-        alt=""
-        style="width: 50px"
-      />
-      <img
-        id="imgModalCorrect"
-        src="../../assets/icons/bi_check-circle.svg"
-        alt=""
-        style="width: 50px"
-      />
-      <span id="mensagem_erro"></span>
-    </div>
-    <main class="container-main">
-      <div class="wrapper">
-        <div class="container-form">
+  <script src="../../js/funcoes.js"></script>
+  <link rel="stylesheet" href="../../global.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="card_erro" id="cardErro">
+    <img id="imgModalError" src="../../assets/icons/bx_error-circle.svg" alt="" style="width: 50px" />
+    <img id="imgModalCorrect" src="../../assets/icons/bi_check-circle.svg" alt="" style="width: 50px" />
+    <span id="mensagem_erro"></span>
+  </div>
+  <main class="container-main">
+    <div class="wrapper">
+      <div class="container-form">
+        <div class="container-center">
           <div class="right-side">
             <div class="header-right-side">
               <img class="logo" src="../../assets/icons/logo.png" alt="" />
@@ -54,41 +42,38 @@
             <form class="form-default" id="form" action="">
               <div class="input-box">
                 <label for="">Nome:</label>
-                <input
-                  type="text"
-                  id="inputNome"
-                  placeholder="Monkey D. Luffy"
-                />
+                <input type="text" id="inputNome" placeholder="Monkey D. Luffy" required />
+                <span id="erroNome"></span>
               </div>
               <div class="input-box">
                 <label for="">Email:</label>
-                <input type="text" id="inputEmail" placeholder="@" />
+                <input type="text" id="inputEmail" placeholder="@" required />
+                <span id="erroEmail"></span>
               </div>
 
-              <div class="input-box">
+              <div class="input-box w50">
                 <label for="">Senha</label>
-                <input type="password" id="inputSenha" placeholder="senha" />
+                <input type="password" id="inputSenha" placeholder="Minimo 8 Caracteres" required />
+                <span id="erroSenha"></span>
               </div>
-              <div class="input-box">
+              <div class="input-box w50">
                 <label for="">Confirme Senha</label>
-                <input
-                  type="password"
-                  id="inputConfirmeSenha"
-                  placeholder="Confirme "
-                />
+                <input type="password" id="inputConfirmeSenha" placeholder="" required />
+                <span id="erroConfirme"></span>
               </div>
               <a onclick="cadastrar()" class="btn btn-blue"> Cadastro </a>
-              <p>Já tem uma conta?</p>
-              <a href="../login/login.html">Entrar</a>
-              <div id="div_aguardar" class="loading-div">
-                <img src="./assets/circle-loading.gif" id="loading-gif" />
-              </div>
+              <p>Já tem uma conta?
+                <a href="../login/login.html">Entrar</a>
+              </p>
+
             </form>
           </div>
         </div>
       </div>
-    </main>
-  </body>
+    </div>
+  </main>
+</body>
+
 </html>
 
 <script>
@@ -101,15 +86,15 @@
     var confirmacaoSenhaVar = inputConfirmeSenha.value;
 
     if (
-      nomeVar == "" ||
-      emailVar == "" ||
-      senhaVar == "" ||
+      nomeVar == "" &
+      emailVar == "" &
+      senhaVar == "" &
       confirmacaoSenhaVar == ""
     ) {
-      inputNome.style.border = '2px solid #E3454F';
-    inputEmail.style.border = '2px solid #E3454F';
-    inputSenha.style.border = '2px solid #E3454F'
-    inputConfirmeSenha.style.border = '2px solid #E3454F'
+      inputNome.style.border = '2px solid #EE7571';
+      inputEmail.style.border = '2px solid #EE7571';
+      inputSenha.style.border = '2px solid #EE7571'
+      inputConfirmeSenha.style.border = '2px solid #EE7571'
       cardErro.style.display = "flex";
       imgModalCorrect.style.display = "none";
       mensagem_erro.innerHTML = "Todos os Campos estão vazios";
@@ -117,64 +102,97 @@
         cardErro.style.display = "none";
       }, 3000);
 
-      finalizarAguardar();
-      return false;
-    } else {
+      // finalizarAguardar();
+
+    }
+    else if (emailVar.indexOf('@') == -1) {
+      erroEmail.innerHTML = 'Email inválido'
+      inputEmail.style.border = '2px solid #EE7571';
+    }
+    else if (senhaVar !=
+      confirmacaoSenhaVar) {
+      inputNome.style.border = '2px solid #4996D3;';
+      inputEmail.style.border = '2px solid #4996D3;';
+      inputSenha.style.border = '2px solid #EE7571'
+      inputConfirmeSenha.style.border = '2px solid #EE7571'
+      erroSenha.innerHTML = 'Senhas não correspondentes';
+      erroConfirme.innerHTML = 'Senhas não correspondentes';
+
+    } else if (senhaVar.length < 8) {
+      inputNome.style.border = '2px solid #4996D3;';
+      inputEmail.style.border = '2px solid #4996D3;';
+      inputConfirmeSenha.style.border = '2px solid #4996D3;'
+      inputSenha.style.border = '2px solid #EE7571'
+      erroSenha.innerHTML = 'Senha Inválida';
+      mensagem_erro.innerHTML = "Senha Inválida";
+      imgModalCorrect.style.display = "none";
+      cardErro.style.display = "flex";
+      setTimeout(() => {
+        cardErro.style.display = "none";
+      }, 3000);
+
+    }
+    else {
       setInterval(sumirMensagem, 5000);
+      fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          // crie um atributo que recebe o valor recuperado aqui
+          // Agora vá para o arquivo routes/usuario.js
+          nomeServer: nomeVar,
+          emailServer: emailVar,
+          senhaServer: senhaVar,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+
+          if (resposta.ok) {
+            cardErro.style.display = "flex";
+            cardErro.style.background = "green";
+            imgModalCorrect.style.display = "flex";
+            imgModalError.style.display = "none";
+            inputNome.style.border = '2px solid #4996D3;';
+            inputEmail.style.border = '2px solid #4996D3;';
+            inputSenha.style.border = '2px solid #4996D3;'
+            inputConfirmeSenha.style.border = '2px solid #4996D3;'
+            mensagem_erro.innerHTML =
+              "Cadastro realizado com sucesso!";
+
+            setTimeout(() => {
+              cardErro.style.display = "none";
+              window.location = "../login/login.html";
+            }, "2000");
+
+            limparFormulario();
+            finalizarAguardar();
+          } else {
+            cardErro.style.display = "flex";
+            imgModalCorrect.style.display = "none";
+            mensagem_erro.innerHTML = "Erro ao Cadastrar";
+            setTimeout(() => {
+              cardErro.style.display = "none";
+            }, 3000);
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
+
+      return false;
     }
 
+    function sumirMensagem() {
+      cardErro.style.display = "none";
+    }
+  }
+
     // Enviando o valor da nova input
-    fetch("/usuarios/cadastrar", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        // crie um atributo que recebe o valor recuperado aqui
-        // Agora vá para o arquivo routes/usuario.js
-        nomeServer: nomeVar,
-        emailServer: emailVar,
-        senhaServer: senhaVar,
-      }),
-    })
-      .then(function (resposta) {
-        console.log("resposta: ", resposta);
 
-        if (resposta.ok) {
-          cardErro.style.display = "flex";
-          cardErro.style.background = "green";
-          imgModalCorrect.style.display = "flex";
-          imgModalError.style.display = "none";
 
-          mensagem_erro.innerHTML =
-            "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
-
-          setTimeout(() => {
-            cardErro.style.display = "none";
-            window.location = "../login/login.html";
-          }, "2000");
-
-          limparFormulario();
-          finalizarAguardar();
-        } else {
-          cardErro.style.display = "flex";
-          imgModalCorrect.style.display = "none";
-          mensagem_erro.innerHTML = "Erro ao Cadastrar";
-          setTimeout(() => {
-            cardErro.style.display = "none";
-          }, 3000);
-          throw "Houve um erro ao tentar realizar o cadastro!";
-        }
-      })
-      .catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        finalizarAguardar();
-      });
-
-    return false;
-  }
-
-  function sumirMensagem() {
-    cardErro.style.display = "none";
-  }
 </script>

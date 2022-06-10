@@ -57,6 +57,10 @@
     font-weight: normal;
 }
 
+.input-box span {
+    color: var(--red-500);
+}
+
 .input-box input {
     width: 100%;
     padding: 15px;
@@ -65,11 +69,12 @@
     outline: none;
     transition: .5s;
     font-size: 1rem;
+    border: 2px solid transparent;
     background: var(--secondary-100);
 }
 
 .input-box input:focus {
-    outline: 2px solid var(--blue-400);
+    border: 2px solid var(--blue-400);
 }
 
 .input-box ::placeholder {
@@ -108,4 +113,32 @@
 
 .right-side .logo {
     width: 50px;
+}
+
+.alerta_erro {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card_erro {
+    z-index: 1;
+    top: 2rem;
+    right: 2rem;
+    border-radius: 16px;
+    display: none;
+    background: var(--red-500);
+    align-items: center;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--secondary-100);
+    width: min(400px, 100%);
+    position: absolute;
+    border: var(--secondary-100) 1px solid;
+    padding: 10px;
+
+}
+
+.card_erro #mensagem_erro {
+    font-weight: 500;
+    font-size: 20px;
 }

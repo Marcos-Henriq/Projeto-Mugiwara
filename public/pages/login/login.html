@@ -16,6 +16,11 @@
 </head>
 
 <body>
+    <div class="card_erro" id="cardErro">
+        <img id="imgModalError" src="../../assets/icons/bx_error-circle.svg" alt="" style="width: 50px" />
+        <img id="imgModalCorrect" src="../../assets/icons/bi_check-circle.svg" alt="" style="width: 50px" />
+        <span id="mensagem_erro"></span>
+    </div>
     <main class="container-main">
         <div class="wrapper">
             <div class="container-form">
@@ -41,10 +46,12 @@
                         <div class="input-box">
                             <label for="">Email:</label>
                             <input type="text" id="inputEmail" placeholder="@">
+                            <span id="erroEmail"></span>
                         </div>
                         <div class="input-box">
                             <label for="">Senha</label>
                             <input type="password" id="inputSenha" placeholder="senha">
+                            <span id="erroSenha"></span>
                         </div>
                         <a onclick="entrar()" class="btn btn-blue">Entrar</a>
                         <p>Não tem uma conta?<a href="../cadastro/cadastro.html">Cadastre-se</a></p>
@@ -66,67 +73,112 @@
         var emailVar = inputEmail.value;
         var senhaVar = inputSenha.value;
 
-        if (emailVar == "" || senhaVar == "") {
-            finalizarAguardar();
-            return false;
+        if (emailVar == "" & senhaVar == "") {
+            inputEmail.style.border = '2px solid #EE7571';
+            inputSenha.style.border = '2px solid #EE7571'
+            cardErro.style.display = "flex";
+            imgModalCorrect.style.display = "none";
+            mensagem_erro.innerHTML = "Todos os Campos estão vazios";
+            setTimeout(() => {
+                cardErro.style.display = "none";
+            }, 3000);
+
+            // finalizarAguardar();
+
+        }
+        else if (emailVar.indexOf('@') == -1) {
+            erroEmail.innerHTML = 'Email inválido'
+            inputEmail.style.border = '2px solid #EE7571';
+        } else if (senhaVar.length < 8) {
+
+            inputEmail.style.border = '2px solid #4996D3;';
+
+            inputSenha.style.border = '2px solid #EE7571'
+            erroSenha.innerHTML = 'Senha Inválida';
+            mensagem_erro.innerHTML = "Senha Inválida";
+            imgModalCorrect.style.display = "none";
+            cardErro.style.display = "flex";
+            setTimeout(() => {
+                cardErro.style.display = "none";
+            }, 3000);
+
         }
         else {
             // setInterval(sumirMensagem, 5000)
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    cardErro.style.display = "flex";
+                    cardErro.style.background = "green";
+                    imgModalCorrect.style.display = "flex";
+                    imgModalError.style.display = "none";
+
+                    inputEmail.style.border = '2px solid #4996D3;';
+                    inputSenha.style.border = '2px solid #4996D3;'
+
+                    mensagem_erro.innerHTML =
+                        "Login realizado com sucesso!";
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIO = json.idUsuario;
+                        if (json.email == 'marcos.adm@gmail.com' & json.senha == 'marcosadmin') {
+                            setTimeout(function () {
+
+                                window.location = "../adm/dashboard.html";
+                            }, 500);
+                        } else {
+                            setTimeout(function () {
+
+                                window.location = "../user/dashboard.html";
+                            }, 500); // apenas para exibir o loading
+                        }
+
+
+                    });
+
+                } else {
+
+                    cardErro.style.display = "flex";
+                    imgModalCorrect.style.display = "none";
+                    mensagem_erro.innerHTML = "Erro ao Entrar";
+                    setTimeout(() => {
+                        cardErro.style.display = "none";
+                    }, 3000);
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                        finalizarAguardar(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
         }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.idUsuario;
-                    if (json.email == 'marcos.adm@gmail.com' & json.senha == 'marcosadmin') {
-                        setTimeout(function () {
-                            window.location = "../adm/dashboard.html";
-                        }, 500);
-                    } else {
-                        setTimeout(function () {
-                            window.location = "../user/dashboard.html";
-                        }, 500); // apenas para exibir o loading
-                    }
-
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
     }
 
 

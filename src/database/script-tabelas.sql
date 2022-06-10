@@ -3,13 +3,13 @@ use bdcrew;
 
 
 create table Usuario(
-idUsuario int primary key auto_increment,
-nome varchar(50),
-email varchar(50),
-senha varchar(30)
+idUsuario int primary key auto_increment unique,
+nome varchar(50) ,
+email varchar(50) unique,
+senha varchar(30) unique
 );
 
-alter table Usuario add constraint unique(idUsuario, email, senha);
+
 
 create table Bando(
 idBando int primary key auto_increment,
@@ -62,7 +62,7 @@ insert into Pirata(nomePirata,fkBando,caminhoImagem) values
 insert into Bando(nomeBando)values
 ('Piratas Heart');
 insert into Pirata(nomePirata,fkBando,caminhoImagem) values
-('Trafalgar D. Water Law',2,'../../assets/cards/heart/Tragalfar Law.png'),
+('Trafalgar Law',2,'../../assets/cards/heart/Tragalfar Law.png'),
 ('Bepo',2,'../../assets/cards/heart/Bepo.png');
 
 -- marinha
@@ -84,20 +84,5 @@ insert into Bando(nomeBando)values
 ('Piratas Big Mom');
 insert into Pirata(nomePirata,fkBando,caminhoImagem) values
 ('Charlotte Linlin',4,'../../assets/cards/bigMom/Big Mom.png');
-update Pirata set nomePirata = 'Big Mom' where idPirata = 22;
-update Pirata set nomePirata = 'Trafalgar Law' where idPirata = 11;
 
-select * from Pirata;
-
-select * from Pirata join Bando on fkBando = idBando;
-
-select * from Usuario;
-select * from Pirata join Bando on Pirata.fkBando = Bando.idBando join Deck on Deck.fkPirata = Pirata.idPirata join Usuario on fkUsuario = idUsuario where Usuario.idUsuario = 3;
-
-select Pirata.*, count(fkPirata) as 'qtdPirata' from Deck join Pirata on fkPirata = idPirata
- group by Pirata.nomePirata order by qtdPirata limit 1;
- 
- select Pirata.*, count(fkPirata) as 'qtdPirata' from Deck join Pirata on fkPirata = idPirata
- group by Pirata.nomePirata order by qtdPirata desc limit 1;
- 
-select Bando.*,count(fkBando) as 'qtdAdicoes' from Pirata join Bando on fkBando = idBando group by Bando.nomeBando;
+-- insert into Pirata(nomePirata,fkBando,caminhoImagem) values ('Katakuri',4,'../../assets/cards/bigMom/Katakuri.png'),('Perospero',4,'../../assets/cards/bigMom/Perospero.png')
