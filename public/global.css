@@ -246,3 +246,14 @@ footer {
     gap: 20px;
     display: flex;
 }
+@media(max-width:610px){
+    .container-header .nav ul {
+        display: none;
+    }
+    .content-img{
+        display: none;
+    }
+    .nav.footer{
+        display: none;
+    }
+}
